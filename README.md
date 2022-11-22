@@ -1,5 +1,1 @@
 # Fallstudie
-
-
-
-# Nicho isn kek
