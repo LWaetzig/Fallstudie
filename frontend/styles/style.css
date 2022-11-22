@@ -1,0 +1,111 @@
+* {
+    background-color: rgb(36, 37, 42);
+    font-family: "Montserrat" , sans-serif;
+    font-weight: 500;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+p a button{
+    font-size: 16px;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
+}
+
+body {
+    padding: 10px 25px;
+}
+
+/*create navbar layout*/
+.logo {
+    height: 100px;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.navbar{
+    list-style: none;
+}
+
+.navbar li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.navbar a:hover{
+    color: #0088a9;
+    transition: all 0.3s ease 0s;
+}
+
+/*create button layouts*/
+.btn-header{
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-header:hover{
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+.btn-outlined{
+    background-color: rgb(36, 37, 42);
+    padding: 10px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 10px;
+    }
+
+.btn-outlined:hover{
+    background-color: #edf0f1;
+    color: rgb(36, 37, 42);
+}
+
+
+/*create grid layout using grid and flexbox*/
+.two-clm-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+}
+
+.one-col-flexbox{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.video-container{
+    height: 300px;
+    width: 300px;
+    position: relative;
+}
+
+.video-container video{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+}
+
+#stock{
+    width: 1000px;
+}
