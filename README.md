@@ -1,5 +1,2 @@
 # Fallstudie
 
-test
-
-asdasd
