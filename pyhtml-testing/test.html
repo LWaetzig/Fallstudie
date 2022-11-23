@@ -6,10 +6,7 @@
     </head>
 
   <body>
-    <py-config>
-        [[fetch]]
-        files = ["./utils.py"]
-    </py-config>
+    <py-config fetch="./utils.py"></py-config>
     <b><p>Today is <u><label id='today'></label></u></p></b>
     <br>
     <div id="pi" class="alert alert-primary"></div>
@@ -25,6 +22,9 @@
 
       pi = compute_pi(100000)
       pyscript.write('pi', f'π is approximately {pi:.3f}')
+
+      from utils import test
+      test()
     </py-script>
   </body>
 </html>
