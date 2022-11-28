@@ -3,30 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="styles/style.css" />
-    <!--Python integration-->
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-
     <title>Portfolioanalyse</title>
   </head>
 
   <body>
     <!--define header with headline, video and button-->
-    <header>
+    <header id="header">
       <img class="logo" src="img/logo_blacked.png" alt="FID€O Logo"> 
       <nav>
         <ul class="navbar">
+          <li><a href="#">Über uns</a></li>
           <li><a href="#">Mein Portfolio</a></li>
           <li><a href="#">Portfolioanalyse</a></li>
         </ul>
       </nav>
       <button class="btn-header">Login</button>
     </header>
-    <hr />
     <!--define main body of the website with elements-->
     <main>
       <h2 style="text-align: center;">Aktuell beliebte Aktien</h2>
-      <py-script src="../backend/main.py"></py-script>
       <!--first section with grid layout using grid-->
       <section class="two-clm-grid">
         <div class="grid-item">
