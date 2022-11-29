@@ -28,7 +28,7 @@ GitHub repository for class Fallstudie
     - if you hover over the file name, there is a + symbol on the right site -> hit this symbol to add the file for upload
     - on the top there is a textfield. Please add a short instruction what you´ve changed/ edited
     - after that hit the big blue button which says "commit" to stage your changes
-    - finally hit the
+    - finally locate to the bottom of the vscode window. There you can find a small circle with two arrows -> hit this arrow to push into git
   - or you use the git bash:
     - run ```git add <file-name>``` to add the file you´ve changed
     - after that run ```git commit -m "add message"```to stage the changes
