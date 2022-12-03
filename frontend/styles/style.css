@@ -1,48 +1,45 @@
-/* Style the header with a grey background and some padding 3c5278 67548e*/
 header {
+display: flex;
+justify-content: flex-end;
+align-items: center;
 overflow: hidden;
 background-color: #67548e;
 padding: 20px 20px;
 }
 
-/* Style the header links */
 header a {
-float: left;
-color: black;
-text-align: center;
-padding: 12px;
-text-decoration: none;
-font-size: 18px;
-line-height: 25px;
-border-radius: 4px;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
 }
 
-/* Change the background color on mouse-over */
 header a:hover {
-background-color: #ddd;
-color: black;
+    background-color: #ddd;
+    color: black;
 }
 
-/* Style the active/current link*/
-header a.active {
-background-color: dodgerblue;
-color: white;
-}
-
-/* Float the link section to the right */
-.header-right {
-float: right;
-
-}
-
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
-header a {
-    float: none;
-    display: block;
-    text-align: left;
+    header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
 }
-.header-right {
-    float: none;
+
+.navbar{
+    list-style: none;
 }
+.navbar li{
+    display: inline-block;
+}
+
+
+#logo{
+    height: 100px;
+    cursor: pointer;
+    margin-right: auto;
 }
