@@ -59,13 +59,12 @@
   font-weight: bold;
 }
 
-
 .add-btn{
   border: 1px solid black;
   float: right;
   border-radius: 50%;
   background-color: white;
-  font-weight: 2000;
+  box-shadow: 5px 5px;
 }
 
 .add-btn:hover{
@@ -73,4 +72,3 @@
   background-color: #2E8B57;
   color: white;
 }
-
