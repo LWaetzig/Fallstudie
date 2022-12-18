@@ -46,3 +46,7 @@
     max-height: 30%;
     overflow: auto;
 }
+
+.share-image{
+    border: 1px solid black;
+}
