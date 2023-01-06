@@ -1595,6 +1595,9 @@ a {
   padding-bottom: 9rem;
   background-color: #fafafa;
 }
+.cid-sFzyUE9AaP hr{
+  color: rgba(0, 0, 0, 0.2);
+}
 @media (min-width: 1500px) {
   .cid-sFzyUE9AaP .container {
     max-width: 1400px;
@@ -1670,6 +1673,7 @@ a {
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 992px) {
   .cid-sFzFvgBfc0 .item-wrapper .item-content {
@@ -1736,6 +1740,8 @@ a {
 .cid-sFzDdjoEIw .plan {
   word-break: break-word;
   background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 .cid-sFzDdjoEIw .plan .list-group-item {
   position: relative;
@@ -1917,6 +1923,8 @@ a {
   display: flex;
   border-radius: 4px;
   background: #ffffff;
+  border: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 991px) {
   .cid-sFzIA7KGYz .card-wrapper {
