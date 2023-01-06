@@ -111,26 +111,31 @@ def create_data_dict(shares: list) -> dict:
     """
     share_dict = dict()
     for i in shares:
-        history = f"shares/{i}.csv"
         share_dict.update(
             {
                 str(i): {
                     "LongName": str(ticker(i).info["longName"]),
                     "Sector": str(ticker(i).info["sector"]),
-                    "HistData": history,
+                    "HistData": f"shares/{i}.csv",
                 }
             }
         )
-    # create dictionary for share content
-    # file dict with same information as in the function above
 
     return share_dict
 
 
+def wrapper_function():
+
+    # selected shares : list
+
+    # ticker function
+    # historical_data function
+    # share_dict = create_data_dict function
+
+    with open("finance.json" , "w" , encoding="utf-8") as f:
+        json.dump(share_dict , f, indent=4 , ensure_ascii=False)
 
 
+wrapper_function()
 
-share_dict = create_data_dict(testshares)
 
-with open("finance.json" , "w" , encoding="utf-8") as f:
-    json.dump(share_dict , f, indent=4 , ensure_ascii=False)
