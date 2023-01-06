@@ -1,0 +1,62 @@
+/*style for popup window (used in fideo.html)*/
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target{
+    visibility: visible;
+    opacity: 1;
+}
+
+.wrapper{
+    margin: 100px auto;
+    padding: 20px;
+    background: #e7e7e7;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    justify-content: center;
+    transition: all 50ms ease-in-out;
+}
+
+.wrapper .close{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transform: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.wrapper .content{
+    max-height: 30%;
+    overflow: auto;
+}
+
+.share-image{
+    border: 1px solid black;
+}
+
+.add-btn{
+  border: 1px solid black;
+  float: right;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 5px 5px;
+}
+
+.add-btn:hover{
+  border: 1px solid transparent;
+  background-color: #2E8B57;
+  color: white;
+}
