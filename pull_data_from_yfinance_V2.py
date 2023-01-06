@@ -5,6 +5,7 @@ import yfinance as yf
 import pandas as pd
 import json
 import os
+import shutil
 
 selected_shares = [
     "ADDDF",
@@ -88,18 +89,21 @@ def ticker(share_symbol):
 # df = pd.DataFrame(data)
 # maybe a better alternative to create file?
 
-def history_data(shares: list , share : str):
+def historical_data(shares: list):
     """function to get all history data for each passed share
     """
 
-os.mkdir("shares")
-share = "AAPL"
-history = ticker(share).history(period = "1d" , actions=False)
-history.to_csv(f"shares/{share.lower()}.csv")
+    if os.path.exists("shares") :
+        #this command deletes the folder and all files in it without making trouble because of permission etc...
+        shutil.rmtree("shares")
 
-history = pd.read_csv("shares/aapl.csv" , index_col=0)
+    os.mkdir("shares")
+    for i in shares:
+        share = str(i)
+        history = ticker(share).history(period = "5d" , actions=False)
+        history.to_csv(f"shares/{share}.csv")
 
-
+    #history = pd.read_csv("shares/aapl.csv" , index_col=0)
 
 def create_data_dict(shares: list) -> dict:
     """function that takes a list with selected shares and creates a dictionary with important information
@@ -129,13 +133,11 @@ def wrapper_function():
     # selected shares : list
 
     # ticker function
-    # historical_data function
-    # share_dict = create_data_dict function
+    historical_data(testshares)
+    share_dict = create_data_dict(testshares)
 
     with open("finance.json" , "w" , encoding="utf-8") as f:
         json.dump(share_dict , f, indent=4 , ensure_ascii=False)
 
 
 wrapper_function()
-
-

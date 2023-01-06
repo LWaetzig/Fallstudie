@@ -1,0 +1,12 @@
+{
+    "AAPL": {
+        "LongName": "Apple Inc.",
+        "Sector": "Technology",
+        "HistData": "shares/AAPL.csv"
+    },
+    "ADDDF": {
+        "LongName": "adidas AG",
+        "Sector": "Consumer Cyclical",
+        "HistData": "shares/ADDDF.csv"
+    }
+}
