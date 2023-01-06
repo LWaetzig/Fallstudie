@@ -1,25 +1,50 @@
-#README This Program pulls finance data from yahoo finance and saves it into
+# README This Program pulls finance data from yahoo finance and saves it into
 # a local file encoded in JSON.
 
 import yfinance as yf
 import pandas as pd
 
-selected_shares = ["ADDDF", "ALIZF", "GOOGL", "AMZN", "AAPL", "BFFAF", "BAYZF",
- "BNTX", "BAMXF", "KO", "CRZBF", "MBGAF", "DB", "DLAKF", "META", "MSFT", "NKE",
-  "NVDA",  "PYPL", "POAHF", "SAPGF", "SMAWF", "DTEGF", "TSLA", "VLKPF"]
+selected_shares = [
+    "ADDDF",
+    "ALIZF",
+    "GOOGL",
+    "AMZN",
+    "AAPL",
+    "BFFAF",
+    "BAYZF",
+    "BNTX",
+    "BAMXF",
+    "KO",
+    "CRZBF",
+    "MBGAF",
+    "DB",
+    "DLAKF",
+    "META",
+    "MSFT",
+    "NKE",
+    "NVDA",
+    "PYPL",
+    "POAHF",
+    "SAPGF",
+    "SMAWF",
+    "DTEGF",
+    "TSLA",
+    "VLKPF",
+]
 
-#USAGE of the function: symbol of the share has to be inserted as String
+# USAGE of the function: symbol of the share has to be inserted as String
 # Filename has to be a string with an ending e.g. "file.txt"
+
 
 def pull_data(share_name, filename):
     share = yf.Ticker(str(share_name))
-    data = share.history(period = "5y", actions = False)
+    data = share.history(period="5y", actions=False)
     df = pd.DataFrame(data)
 
     # other period options: “1d”, “5d”, “1mo”, “3mo”,
     #  “6mo”, “1y”, “2y”, “5y”, “10y”, “ytd”, “max”
 
-    #CREATE JSON-file
+    # CREATE JSON-file
     json = open(str(filename), "a")
     json.write("\n{\n")
     json.write('"share_name": "')
@@ -43,7 +68,8 @@ def pull_data(share_name, filename):
         json.write(str(i[1][3]))
         json.write('",\n\t\t"Volume": "')
         json.write(str(i[1][4]))
-        json.write('"\n\t\t}\n\t},')      
+        json.write('"\n\t\t}\n\t},')
 
-#for comp in selected_shares:
-#    pull_data(comp, "FinanceData.txt")
+
+for comp in selected_shares:
+    pull_data(comp, "FinanceData.txt")
