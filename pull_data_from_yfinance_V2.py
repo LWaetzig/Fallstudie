@@ -3,6 +3,7 @@
 
 import yfinance as yf
 import pandas as pd
+import json
 
 selected_shares = [
     "ADDDF",
@@ -72,4 +73,26 @@ def pull_data(share_name, filename):
 
 
 for comp in selected_shares:
-    pull_data(comp, "FinanceData.txt")
+    pull_data(comp, "FinanceData.json")
+
+
+# maybe a better alternative to create file?
+
+def create_data_dict(shares : list) -> dict:
+    """function that takes a list with selected shares and creates a dictionary with important information
+
+    Args:
+        shares (list): selected shares
+
+    Returns:
+        dict: content (see function above)
+    """
+
+    # create dictionary for share content
+    # file dict with same information as in the function above
+
+    return share_dict
+
+
+with open(file_path , "w" , encoding="utf-8") as f:
+    json.dump(share_dict , f, indent=4 , ensure_ascii=False)
