@@ -72,15 +72,20 @@ def pull_data(share_name, filename):
         json.write('"\n\t\t}\n\t},')
 
 
-for comp in selected_shares:
-    pull_data(comp, "FinanceData.json")
+# for comp in selected_shares:
+#     pull_data(comp, "FinanceData.json")
 
+testshares = ["AAPL", "ADDDF"]
+def ticker(share_symbol):
+    symbol = yf.Ticker(str(share_symbol))
+    return symbol
 
+#data = testshares.history(period="1d", actions=False)
+#df = pd.DataFrame(data)
 # maybe a better alternative to create file?
 
 def create_data_dict(shares : list) -> dict:
     """function that takes a list with selected shares and creates a dictionary with important information
-
     Args:
         shares (list): selected shares
 
@@ -88,11 +93,20 @@ def create_data_dict(shares : list) -> dict:
         dict: content (see function above)
     """
 
+    share_dict = dict()
+    for i in shares:
+        history = pd.DataFrame(ticker(i).history("1d", actions=False))
+        # for j in history.iterrows():
+        #     j[0] = str([0])[:11]
+        share_dict.update({str(i):{"LongName":str(ticker(i).info["longName"]),
+        "Sector":str(ticker(i).info["sector"]),
+        "HistData": history}})
     # create dictionary for share content
     # file dict with same information as in the function above
 
     return share_dict
+share_dict = create_data_dict(testshares)
+print(create_data_dict(testshares))
 
-
-with open(file_path , "w" , encoding="utf-8") as f:
-    json.dump(share_dict , f, indent=4 , ensure_ascii=False)
+# with open("finance.json" , "w" , encoding="utf-8") as f:
+#     json.dump(share_dict , f, indent=4 , ensure_ascii=False)
