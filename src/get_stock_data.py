@@ -50,8 +50,7 @@ def create_data_dict(shares: list) -> dict:
 
 
 def wrapper_function() -> None:
-    """wrapper function to create .csv files for historical stock data and .json file with further information about the share
-    """
+    """wrapper function to create .csv files for historical stock data and .json file with further information about the share"""
 
     selected_shares = [
         "ADDDF",
@@ -88,16 +87,14 @@ def wrapper_function() -> None:
         json.dump(share_dict, f, indent=4, ensure_ascii=False)
 
 
-
 def create_visualization(file_path) -> None:
-    """create visualization using plotly
-    """
+    """create visualization using plotly"""
 
-    df = pd.read_csv(file_path , index_col=0)
+    df = pd.read_csv(file_path, index_col=0)
     fig = go.Figure
-    
+
     fig = go.Figure()
-        
+
     fig.add_trace(
         go.Candlestick(
             x=df.index,
