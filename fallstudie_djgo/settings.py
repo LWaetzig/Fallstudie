@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-6jh0(=ez!e0cd1x(aeb!p!4q_7m_w#5b1tafe2=jbc@5%3ivae
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost"
+    "localhost",
     "127.0.0.1"
 ]
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "fideo "
+    "fideo"
 ]
 
 MIDDLEWARE = [
