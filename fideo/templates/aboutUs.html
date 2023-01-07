@@ -1,175 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta lang="en" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
-    <link rel="shortcut icon" href="../static/images/logo.png" type="image/x-icon"/>
-    <meta name="description" content="" />
+  <meta lang="en" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <meta name="description" content="" />
 
-    <title>About Us</title>
-    <link rel="stylesheet" href="../static/web/assets/icons2/style.css" /> <!-- style for other icons-->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-grid.min.css" />
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-reboot.min.css" />
-    <link rel="stylesheet" href="../static/dropdown/css/style.css" />
-    <link rel="stylesheet" href="../static/socicon/css/styles.css" /> <!-- style for social media icons-->
-    <link rel="stylesheet" href="../static/theme/css/style.css" />
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript ><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" /></noscript>
-    <link rel="stylesheet" href="../static/styles/css/style.css" type="text/css" />
-    <link rel="icon" href="../static/images/logo_icon_white.svg">
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script>
-      $(function() {
-        $("#load-header").load("../static/page-parts/header.html");
-        $("#load-footer").load("../static/page-parts/footer.html")
-      });
-    </script>
+  <title>About Us</title>
+  <link rel="shortcut icon" href="../static/images/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="../static/css/bootstrap-reboot.min.css" />
+  <link rel="stylesheet" href="../static/css/dropdown-style.css" />
+  <link rel="stylesheet" href="../static/css/socicon-styles.css" /> <!-- style for social media icons-->
+  <link rel="stylesheet" href="../static/css/icons2-style.css" /> <!-- style for other icons-->
+  <link rel="stylesheet" href="../static/css/theme-style.css" />
+  <link rel="stylesheet" href="../static/css/popup.css" />
+  <link rel="stylesheet" href="../static/css/login-window.css" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" />
+  </noscript>
+  <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
+  <link rel="icon" href="../static/images/logo_icon_white.svg" />
 </head>
+
 <body>
-    <div id="load-header"></div>
-    <section class="header14 cid-sFzxmVl7J6">
+  <section class="menu menu2 cid-sFCw1qGFAI" once="menu">
+    <nav class="navbar navbar-dropdown navbar-expand-lg">
       <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-12 col-md-6 image-wrapper">
-            <img src="../static/images/mbr-1256x829.jpg" alt="#"/>
-          </div>
-          <div class="col-12 col-md">
-            <div class="text-wrapper">
-              <h1 class="mb-3 display-1">
-                <strong>SOFTWARE EXELLENCE</strong>
-              </h1>
-              <p class="display-7">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut
-                dapibus massa, efficitur varius augue. In vel elit lorem. Fusce
-                et dui fringilla, suscipit nulla viverra nunc. Nulla ut justo
-                enim vehicula maximus.
-              </p>
-              <div class="mbr-section-btn mt-3">
-                <a class="btn btn-secondary display-4" href="#">Get Started</a>
-                <a class="btn btn-primary display-4" href="#">Read More</a>
-              </div>
-            </div>
+        <div class="navbar-brand">
+          <span class="navbar-caption-wrap">
+            <a class="navbar-caption text-black display-7" href="{%url 'index' %}"><img
+                src="../../static/images/logo_no_text.svg" style="width: 120px; height:auto;" /></a>
+          </span>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+            <li class="nav-item">
+              <a class="nav-link link text-black text-primary display-4" href="{%url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link text-black text-primary display-4" href="{%url 'fideo' %}">FIDEO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link text-black text-primary display-4" href="#">Mein Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link text-black text-primary display-4" href="{%url 'aboutUs' %}">About Us</a>
+            </li>
+          </ul>
+  
+          <div class="navbar-buttons mbr-section-btn">
+            <a class="btn btn-primary display-4" href="{%url 'login' %}">Login</a>
           </div>
         </div>
       </div>
-    </section>
+    </nav>
+  </section>
 
-    <section class="features1 cid-sFzyUE9AaP">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 col-lg-9">
-            <h3 class="align-center mb-0 display-2">
-              <strong>Our Features</strong>
-            </h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card col-12 col-md-6 col-lg-3">
-            <div class="card-wrapper">
-              <div class="card-box align-center">
-                <div class="iconfont-wrapper">
-                  <span class="mbr-iconfont mobi-mbri-contact-form mobi-mbri"></span>
-                </div>
-                <h5 class="display-5">
-                  <strong>Market Analysis</strong>
-                </h5>
-                <p class="display-7">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  ut dapibus massa varius augue. In vel elit lorem. Fusce et dui
-                  fringilla nulla viverra.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="card col-12 col-md-6 col-lg-3">
-            <div class="card-wrapper">
-              <div class="card-box align-center">
-                <div class="iconfont-wrapper">
-                  <span class="mbr-iconfont mobi-mbri-growing-chart mobi-mbri"></span>
-                </div>
-                <h5 class="display-5">
-                  <strong>Margin Trading</strong>
-                </h5>
-                <p class="display-7">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  ut dapibus massa varius augue. In vel elit lorem. Fusce et dui
-                  fringilla nulla viverra.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="card col-12 col-md-6 col-lg-3">
-            <div class="card-wrapper">
-              <div class="card-box align-center">
-                <div class="iconfont-wrapper">
-                  <span class="mbr-iconfont mobi-mbri-cash mobi-mbri"></span>
-                </div>
-                <h5 class="display-5">
-                  <strong>Stable Income</strong>
-                </h5>
-                <p class="display-7">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  ut dapibus massa varius augue. In vel elit lorem. Fusce et dui
-                  fringilla nulla viverra.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="header14 cid-sFzz5E692j">
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-12 col-md-6 image-wrapper">
-            <img src="../static/images/mbr-1256x837.jpg" alt="#" />
-          </div>
-          <div class="col-12 col-md">
-            <div class="text-wrapper">
-              <h1 class="mb-3 display-2">
-                <strong>About Company</strong>
-              </h1>
-              <p class="display-7">
-                Software Exellence beschäftigt sich mit dem Thema Software und Finanzen, dabei sprechen wir unseren Kunden zielgerecht an und erfüllen seine Bedürfnisse.
-                Das Vertrauen spielt bei diesen beiden Themenfeldern eine wichtige Rolle, diese nehmen wir ernst und realisieren diese jeden Tag.
-               <br /><br />Wir haben keine Angst vor Herausforderungen und schwierigen Realisierungen. 
-               Jeden Tag machen wir einen Schritt nach vorne, damit wir uns ständig weiter entwickeln können.
-                Unser Team arbeitet dabei zusammen und stemmt jede Herausforderung.
-                <br />
-              </p>
-              <div class="mbr-section-btn mt-3">
-                <a class="btn btn-primary display-4" href="#">Read More</a>
-              </div>
-            </div>
-          </div>
+  <section class="header14 cid-sFzxmVl7J6">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-6 image-wrapper">
+          <img src="../static/images/mbr-1256x829.jpg" alt="#" />
         </div>
-      </div>
-    </section>
-
-    <section class="content10 cid-sFAZRnJnnI">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md">
-            <h6 class="mb-4 display-2">
-              <strong>Why clients choose us?</strong>
-            </h6>
-          </div>
-          <div class="col-md-12 col-lg-6">
+        <div class="col-12 col-md">
+          <div class="text-wrapper">
+            <h1 class="mb-3 display-1">
+              <strong>SOFTWARE EXELLENCE</strong>
+            </h1>
             <p class="display-7">
-              Durch Know-how in den Bereichen Data Science und dem Finanzmarkt heben wir uns von der Konkurrenz ab
-               und können außergewöhnliche Ergebnisse und Produkte liefern.
-               <br /><br />
-              Bereits fertige Produkte konnten auf dem Markt überzeugen und wir verbessern uns von Produkt zu Produkt immer weiter.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut
+              dapibus massa, efficitur varius augue. In vel elit lorem. Fusce
+              et dui fringilla, suscipit nulla viverra nunc. Nulla ut justo
+              enim vehicula maximus.
             </p>
+            <div class="mbr-section-btn mt-3">
+              <a class="btn btn-secondary display-4" href="#">Get Started</a>
+              <a class="btn btn-primary display-4" href="#">Read More</a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-    <div id="load-footer"></div>
-    
+    </div>
+  </section>
+
+  <section class="features1 cid-sFzyUE9AaP">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-lg-9">
+          <h3 class="align-center mb-0 display-2">
+            <strong>Our Features</strong>
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card col-12 col-md-6 col-lg-3">
+          <div class="card-wrapper">
+            <div class="card-box align-center">
+              <div class="iconfont-wrapper">
+                <span class="mbr-iconfont mobi-mbri-contact-form mobi-mbri"></span>
+              </div>
+              <h5 class="display-5">
+                <strong>Market Analysis</strong>
+              </h5>
+              <p class="display-7">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                ut dapibus massa varius augue. In vel elit lorem. Fusce et dui
+                fringilla nulla viverra.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card col-12 col-md-6 col-lg-3">
+          <div class="card-wrapper">
+            <div class="card-box align-center">
+              <div class="iconfont-wrapper">
+                <span class="mbr-iconfont mobi-mbri-growing-chart mobi-mbri"></span>
+              </div>
+              <h5 class="display-5">
+                <strong>Margin Trading</strong>
+              </h5>
+              <p class="display-7">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                ut dapibus massa varius augue. In vel elit lorem. Fusce et dui
+                fringilla nulla viverra.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card col-12 col-md-6 col-lg-3">
+          <div class="card-wrapper">
+            <div class="card-box align-center">
+              <div class="iconfont-wrapper">
+                <span class="mbr-iconfont mobi-mbri-cash mobi-mbri"></span>
+              </div>
+              <h5 class="display-5">
+                <strong>Stable Income</strong>
+              </h5>
+              <p class="display-7">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                ut dapibus massa varius augue. In vel elit lorem. Fusce et dui
+                fringilla nulla viverra.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="header14 cid-sFzz5E692j">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-6 image-wrapper">
+          <img src="../static/images/mbr-1256x837.jpg" alt="#" />
+        </div>
+        <div class="col-12 col-md">
+          <div class="text-wrapper">
+            <h1 class="mb-3 display-2">
+              <strong>About Company</strong>
+            </h1>
+            <p class="display-7">
+              Software Exellence beschäftigt sich mit dem Thema Software und Finanzen, dabei sprechen wir unseren Kunden
+              zielgerecht an und erfüllen seine Bedürfnisse.
+              Das Vertrauen spielt bei diesen beiden Themenfeldern eine wichtige Rolle, diese nehmen wir ernst und
+              realisieren diese jeden Tag.
+              <br /><br />Wir haben keine Angst vor Herausforderungen und schwierigen Realisierungen.
+              Jeden Tag machen wir einen Schritt nach vorne, damit wir uns ständig weiter entwickeln können.
+              Unser Team arbeitet dabei zusammen und stemmt jede Herausforderung.
+              <br />
+            </p>
+            <div class="mbr-section-btn mt-3">
+              <a class="btn btn-primary display-4" href="#">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content10 cid-sFAZRnJnnI">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md">
+          <h6 class="mb-4 display-2">
+            <strong>Why clients choose us?</strong>
+          </h6>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <p class="display-7">
+            Durch Know-how in den Bereichen Data Science und dem Finanzmarkt heben wir uns von der Konkurrenz ab
+            und können außergewöhnliche Ergebnisse und Produkte liefern.
+            <br /><br />
+            Bereits fertige Produkte konnten auf dem Markt überzeugen und wir verbessern uns von Produkt zu Produkt
+            immer weiter.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer3 cid-sFCygHrmNf" once="footers">
+    <div class="container">
+      <div class="row align-center mbr-white">
+        <div class="row row-links">
+          <ul class="foot-menu">
+            <li class="display-7">
+              <a href="{%url 'index' %}" class="text-white">Home</a>
+            </li>
+            <li class="display-7">
+              <a href="{%url 'aboutUs' %}" class="text-white">About Us</a>
+            </li>
+            <li class="display-7">
+              <a href="#" class="text-white">Mein Portfolio</a>
+            </li>
+            <li class="display-7">
+              <a href="{%url 'impressum' %}" class="text-white" target="_blank">Impressum</a>
+            </li>
+          </ul>
+        </div>
+        <div class="row social-row">
+          <div class="social-list align-right pb-2">
+            <div class="soc-item">
+              <a href="https://twitter.com/elonmusk?t=ttXDPbL_0MuNpcdoPZypqQ&s=09" target="_blank">
+                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+              </a>
+            </div>
+            <div class="soc-item">
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1" target="_blank">
+                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+              </a>
+            </div>
+            <div class="soc-item">
+              <a href="https://instagram.com/thelabs_and_wienerdogs?igshid=YmMyMTA2M2Y=" target="_blank">
+                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="../static/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/smooth-scroll.js"></script>
+  <script src="../static/js/navbar-dropdown.js"></script>
+  <script src="../static/js/social-likes.js"></script>
+  <script src="../static/js/script.js"></script>
+  <script src="../static/js/formoid.min.js"></script>
+
 </body>
+
 </html>
