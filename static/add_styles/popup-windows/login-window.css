@@ -1,29 +1,26 @@
-.login-card{
+#lajouhasDIU{
+    position: static;
+}
+.login-form{
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2px 5px rgba(0, 0, 0);
-    visibility: hidden;
-    opacity: 0;
-    
-}
-
-.open-popup{
-    visibility: visible;
-    opacity: 1;
-    transition: all 500ms ease-in-out;
+    height: 100%;
+    width: 100%;
 }
 
 .login-card-body{
-    margin: 100px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 50px auto;
     padding: 20px;
     background: #e7e7e7;
     border-radius: 5px;
     width: 400px;
-    position: relative;
+    
     justify-content: center;
     transition: all 50ms ease-in-out;
 }
