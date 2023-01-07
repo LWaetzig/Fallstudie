@@ -1,10 +1,6 @@
 # Fallstudie
 GitHub repository for class Fallstudie
 
-
-## Links
-- [Taskboard](https://trello.com/b/xql3x054/investmentb%C3%BCro)
-
 ## Important information
 - We use python 3.8.6 -> [download from here](https://www.python.org/downloads/release/python-386/)
 
