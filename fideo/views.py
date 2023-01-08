@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from plotly.offline import plot
+from plotly.graph_objs import Scatter
 
 # Create your views here.
 def home_view(request):
@@ -15,3 +17,7 @@ def impressum_view(request):
 
 def login_view(request):
     return render(request=request , template_name="login.html")
+
+def factory_view(request):
+    return render(request=request , template_name="factory.html")
+
