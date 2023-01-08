@@ -22,7 +22,7 @@ from fideo.views import (
     home_view,
     impressum_view,
     login_view,
-    factory_view,
+    factory,
 )
 
 urlpatterns = [
@@ -33,5 +33,5 @@ urlpatterns = [
     path("aboutUs/", about_us_view, name="aboutUs"),
     path("impressum/", impressum_view, name="impressum"),
     path("login/", login_view, name="login"),
-    path("factory/", factory_view, name="factory"),
+    path("factory/" , factory)
 ]
