@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "fideo"
+
+    "fideo",
+
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
