@@ -16,14 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from fideo.views import (about_us_view, fideo_view, home_view, impressum_view,
-                         login_view)
+from fideo.views import (
+    about_us_view,
+    fideo_view,
+    home_view,
+    impressum_view,
+    login_view,
+    factory_view,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home_view , name="index"),
-    path("fideo/", fideo_view , name="fideo"),
-    path("aboutUs/", about_us_view , name="aboutUs"),
-    path("impressum/", impressum_view , name="impressum"),
-    path("login/", login_view , name="login"),
+    # add urls for each page on website
+    path("", home_view, name="index"),
+    path("fideo/", fideo_view, name="fideo"),
+    path("aboutUs/", about_us_view, name="aboutUs"),
+    path("impressum/", impressum_view, name="impressum"),
+    path("login/", login_view, name="login"),
+    path("factory/", factory_view, name="factory"),
 ]
