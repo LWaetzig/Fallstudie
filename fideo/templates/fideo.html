@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../static/css/theme-style.css" />
   <link rel="stylesheet" href="../static/css/popup.css" />
   <link rel="stylesheet" href="../static/css/login-window.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
   <link rel="preload"
     href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
     as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -26,7 +27,6 @@
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" />
   </noscript>
-  <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
   <link rel="icon" href="../static/images/logo_icon_white.svg" />
 </head>
 
@@ -71,11 +71,11 @@
           <strong>Most Popular Shares</strong>
         </h4>
       </div>
-      <div class="row mt-4" style="border: 1px solid green;">
-        <div class="item features-image сol-12 col-md-6 col-lg-4" style="border: 1px solid black;">
+      <div class="row mt-4">
+        <div class="item features-image сol-12 col-md-6 col-lg-4">
           <div class="item-wrapper">
             <div class="item-img">
-              <img src="../static/images/share.png" alt="#" />
+              {{plot_div}}
             </div>
             <div class="item-content">
               <h5 class="display-5">
@@ -87,7 +87,7 @@
               </p>
             </div>
             <div class="mbr-section-btn item-footer mt-2">
-              <a href="#divOne" class="btn btn-primary display-4"">More information</a>
+              <a href="#divOne" class="btn btn-primary display-4">More information</a>
                 <a class=" btn add-btn" target="_blank">+</a>
             </div>
           </div>
