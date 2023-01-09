@@ -140,5 +140,6 @@ dmypy.json
 
 
 # exclude directories
-data/**
-output/**
+*data/**
+*output/**
+*shares/**
