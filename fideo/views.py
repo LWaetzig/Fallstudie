@@ -1,41 +1,60 @@
 from django.shortcuts import render
 from plotly.offline import plot
-import plotly.graph_objects as go
+import os
+
+from .src.get_stock_data import create_visualization
 
 # Create your views here.
 def home_view(request):
     return render(request=request, template_name="index.html")
 
+
 def about_us_view(request):
-    return render(request=request , template_name="aboutUs.html")
+    return render(request=request, template_name="aboutUs.html")
+
 
 def fideo_view(request):
-    return render(request=request , template_name="fideo.html")
+
+    fig1 = create_visualization("fideo/data/AAPL.csv")
+    fig2 = create_visualization("fideo/data/AMZN.csv")
+    fig3 = create_visualization("fideo/data/TSLA.csv")
+    fig4 = create_visualization("fideo/data/TSLA.csv")
+
+    plot1 = plot(fig1 , output_type="div")
+    plot2 = plot(fig2 , output_type="div")
+    plot3 = plot(fig3 , output_type="div")
+    plot4 = plot(fig4 , output_type="div")
+
+
+    context = {
+        "plot1" : plot1,
+        "share_tag1" : "Apple Inc.",
+        "plot2" : plot2,
+        "share_tag2" : "Amazon 4Müll",
+        "plot3" : plot3,
+        "share_tag3" : "Telsa",
+        "plot4" : plot4,
+        "share_tag4" : "Deutsche Bank"
+    }
+
+    return render(request=request, template_name="fideo.html" , context=context)
+
 
 def impressum_view(request):
-    return render(request=request , template_name="impressum.html")
+    return render(request=request, template_name="impressum.html")
+
 
 def login_view(request):
-    return render(request=request , template_name="login.html")
+    return render(request=request, template_name="login.html")
+
 
 def factory(request):
 
-    fig = go.Figure()
-    fig2 = go.Figure()
-    fig3 = go.Figure()
-    scatter = go.Scatter(x=[0, 1, 2, 3], y=[0, 1, 2, 3], mode="lines", name="test")
-    scatter2 = go.Scatter(x=[0,1,2,3] , y=[5,4,2,7] , mode="lines")
-    scatter3 = go.Scatter(x=[0,1,2,3] , y=[7,1,2,10] , mode="lines")
+    fig = create_visualization(
+        "/Users/lwaetzig/Documents/B_Studium/3_Semester_WSM_2/9_Fallstudie/Fallstudie/shares/AAPL.csv"
+    )
+    plot1 = plot(fig, output_type="div")
 
-    fig.add_trace(scatter)
-    fig2.add_trace(scatter2)
-    fig3.add_trace(scatter3)
-    plot_div = plot(fig , output_type="div", include_plotlyjs=False, show_link=False)
-    plot_div2 = plot(fig2 , output_type="div" , include_plotlyjs=False , show_link=False)
-    plot_div3 = plot(fig3 , output_type="div" , include_plotlyjs=False , show_link=False)
-
-
-    context = {"plot_div" : plot_div , "plot_div2" : plot_div2 , "plot_div3" : plot_div3}
+    context = {"plot1": plot1}
 
     return render(request=request, template_name="factory.html", context=context)
-
