@@ -1,593 +1,489 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-  <meta lang="en" />
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <meta name="description" />
-
-  <title>Home</title>
-  <link rel="shortcut icon" href="../static/images/logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../static/css/bootstrap-grid.min.css" />
-  <link rel="stylesheet" href="../static/css/bootstrap-reboot.min.css" />
-  <link rel="stylesheet" href="../static/css/dropdown-style.css" />
-  <link rel="stylesheet" href="../static/css/socicon-styles.css" /> <!-- style for social media icons-->
-  <link rel="stylesheet" href="../static/css/icons2-style.css" /> <!-- style for other icons-->
-  <link rel="stylesheet" href="../static/css/theme-style.css" />
-  <link rel="stylesheet" href="../static/css/popup.css" />
-  <link rel="stylesheet" href="../static/css/login-window.css" />
-  <link rel="preload"
-    href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
-    as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" />
-  </noscript>
-  <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
-  <link rel="icon" href="../static/images/logo_icon_white.svg" />
-</head>
-
-<body>
-  <section class="menu menu2 cid-sFCw1qGFAI" once="menu">
-    <nav class="navbar navbar-dropdown navbar-expand-lg">
-      <div class="container">
-        <div class="navbar-brand">
-          <span class="navbar-caption-wrap">
-            <a class="navbar-caption text-black display-7" href="{%url 'index' %}"><img
-                src="../../static/images/logo_no_text.svg" style="width: 120px; height:auto;" /></a>
-          </span>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="{%url 'index' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="{%url 'fideo' %}">FIDEO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="#">Mein Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-black text-primary display-4" href="{%url 'aboutUs' %}">About Us</a>
-            </li>
-          </ul>
-
-          <div class="navbar-buttons mbr-section-btn">
-            <a class="btn btn-primary display-4" href="{%url 'login' %}">Login</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </section>
-
-  <section class="cid-sFzFvgBfc0">
-    <div class="container">
-      <div class="scnt-heading">
-        <h4 class="align-center mb-5 display-2">
-          <strong>Was Wir anbieten!</strong>
-        </h4>
-      </div>
-      <div class="row mt-4">
-        <div class="item features-image сol-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="item-img">
-              <img src="../static/images/mbr-816x544.jpg" alt="#" />
-            </div>
-            <div class="item-content">
-              <h5 class="display-5">
-                <strong>Aktienkurse</strong>
-              </h5>
-              <p class="mt-3 display-7">
-                Wir machen es möglich die Aktienkurse in Echtzeit anzuzeigen. Dadurch ist es möglich eine Risikoanalyse durchzuführen und direkt zu erkennen, welcher Aktienkurs aktuell am Markt gehandelt wird.
-          
-              </p>
-            </div>
-            <div class="mbr-section-btn item-footer mt-2">
-              <a href="{%url 'fideo' %}" class="btn btn-primary display-4">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="item features-image сol-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="item-img">
-              <img src="../static/images/mbr-1-816x544.jpg" alt="#" />
-            </div>
-            <div class="item-content">
-              <h5 class="display-5">
-                <strong>Aktienprognose</strong>
-              </h5>
-              <p class="mt-3 display-7">
-                Mit unserer Aktienprognose ist es möglich eine professionelle Schätzung des Aktienkurses für die Zukunft anzubieten. 
-                Der Kunde hat dadurch die Möglichkeit mit höherer Sicherheit in Aktien zu investerien. Unser professionelles Team gibt alles um die besten Aktienprognosen zu liefern.
-              </p>
-            </div>
-            <div class="mbr-section-btn item-footer mt-2">
-              <a href="#" class="btn btn-primary display-4">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="item features-image сol-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="item-img">
-              <img src="../static/images/mbr-816x524.jpg" alt="#" />
-            </div>
-            <div class="item-content">
-              <h5 class="display-5">
-                <strong>Risikoanalyse</strong>
-              </h5>
-              <p class="mt-3 display-7">
-                Durch die Einstellung Ihres ganz persönlichen Risikos zum investieren bieten Wir eine Auswahl an Aktien an, welche zu Ihrer Risikovorliebe beim investieren entspricht.
-                Dadurch bieten Wir unseren Kunden schnellstmögliche Beratung zu Kaufs- oder Verkaufsentscheidungen an.
-              </p>
-            </div>
-            <div class="mbr-section-btn item-footer mt-2">
-              <a href="#" class="btn btn-primary display-4">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="cid-sFzFvgBfc0">
+  <div class="container">
+    <div class="scnt-heading">
+      <h4 class="align-center mb-5 display-2">
+        <strong>Was Wir anbieten!</strong>
+      </h4>
     </div>
-  </section>
+    <div class="row mt-4">
+      <div class="item features-image сol-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="item-img">
+            <img src="../static/images/mbr-816x544.jpg" alt="#" />
+          </div>
+          <div class="item-content">
+            <h5 class="display-5">
+              <strong>Aktienkurse</strong>
+            </h5>
+            <p class="mt-3 display-7">
+              Wir machen es möglich die Aktienkurse in Echtzeit anzuzeigen. Dadurch ist es möglich eine Risikoanalyse
+              durchzuführen und direkt zu erkennen, welcher Aktienkurs aktuell am Markt gehandelt wird.
 
-  <section class="header14 cid-sFzz5E692j">
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-6 image-wrapper">
-          <img src="../static/images/finanzbild.jpg" alt="#" />
-        </div>
-        <div class="col-12 col-md">
-          <div class="text-wrapper">
-            <h1 class="mb-3 display-2">
-              <strong>Was ist FID€O?</strong>
-            </h1>
-            <p class="display-7">
-              Mit FID€O kann man den aktuellen Aktienmarkt einsehen und sich seine Favoriten in seinem Kundenkonto
-              hinterlegen.
-              Mit einem Abonnement ist es möglich Vorhersagen zu Aktien zu erhalten, sowie eine Risikoanalyse in seinem
-              Account zu hinterlegen.
-              Mit dieser ist es möglich Aktien auf Grund seiner Risikobereitschaft angezeigt zu bekommen.
-              <br /><br />
-              Das FID€O - Abonnement kann durch ein monatliches Entgelt abgeschlossen werden.
-              <br />
             </p>
-            <div class="mbr-section-btn mt-3">
-              <a class="btn btn-primary display-4" href="#pricing">Get started!</a>
-            </div>
+          </div>
+          <div class="mbr-section-btn item-footer mt-2">
+            <a href="{%url 'fideo' %}" class="btn btn-primary display-4">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image сol-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="item-img">
+            <img src="../static/images/mbr-1-816x544.jpg" alt="#" />
+          </div>
+          <div class="item-content">
+            <h5 class="display-5">
+              <strong>Aktienprognose</strong>
+            </h5>
+            <p class="mt-3 display-7">
+              Mit unserer Aktienprognose ist es möglich eine professionelle Schätzung des Aktienkurses für die Zukunft
+              anzubieten.
+              Der Kunde hat dadurch die Möglichkeit mit höherer Sicherheit in Aktien zu investerien. Unser
+              professionelles Team gibt alles um die besten Aktienprognosen zu liefern.
+            </p>
+          </div>
+          <div class="mbr-section-btn item-footer mt-2">
+            <a href="#" class="btn btn-primary display-4">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image сol-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="item-img">
+            <img src="../static/images/mbr-816x524.jpg" alt="#" />
+          </div>
+          <div class="item-content">
+            <h5 class="display-5">
+              <strong>Risikoanalyse</strong>
+            </h5>
+            <p class="mt-3 display-7">
+              Durch die Einstellung Ihres ganz persönlichen Risikos zum investieren bieten Wir eine Auswahl an Aktien
+              an, welche zu Ihrer Risikovorliebe beim investieren entspricht.
+              Dadurch bieten Wir unseren Kunden schnellstmögliche Beratung zu Kaufs- oder Verkaufsentscheidungen an.
+            </p>
+          </div>
+          <div class="mbr-section-btn item-footer mt-2">
+            <a href="#" class="btn btn-primary display-4">Read More</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="team1 cid-sFzErVWEaH">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <h3 class="align-center mb-5 display-2">
-            <strong>Professional Team</strong>
-          </h3>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card-wrap">
-            <div class="image-wrap">
-              <img src="../static/images/image_2.png" alt="#" />
-            </div>
-            <div class="content-wrap">
-              <h5 class="align-center m-0 display-5">
-                <strong>Adrian <br>Setz</strong>
-              </h5>
-              <h6 class="align-center mb-3 display-4">
-                <strong>Chief Executive Officer (CEO)</strong>
-              </h6>
-              <p class="align-center display-7">
-                Adrian ist der Chef unseres jungen Startups. Er triff die wichtigen Entscheidungen für uns und hält
-                somit auch den Kopf für unser Team hin. Wenn jemand mit unserem Unternehmen ein Problem hat - dann ist garantiert Adrian schuld.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card-wrap">
-            <div class="image-wrap">
-              <img src="../static/images/image_1.png" alt="#" />
-            </div>
-            <div class="content-wrap">
-              <h5 class="align-center m-0 display-5">
-                <strong>Lars <br> Kurschilgen</strong>
-              </h5>
-              <h6 class="align-center mb-3 display-4">
-                <strong>Chief Financial Officer (CFO)</strong>
-              </h6>
-              <p class="align-center display-7">
-                Lars kümmert sich gerne ums Geld. Egal ob die Finanzen der Firma oder der Anleger, Lars schaut immer, dass Wir am Ende Gewinn machen.
-                Wenn Lucas die neueste Hardware für die Server haben will, muss er erstmal an Lars vorbei.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card-wrap">
-            <div class="image-wrap">
-              <img src="../static/images/image_5.png" alt="#" />
-            </div>
-            <div class="content-wrap">
-              <h5 class="align-center m-0 display-5">
-                <strong>Lucas<br> Wätzig</strong>
-              </h5>
-              <h6 class="align-center mb-3 display-4">
-                <strong>Chief Operating Officer (COO)</strong>
-              </h6>
-              <p class="align-center display-7">
-                Lucas ist unser Programmier-ass. Wenn etwas nicht läuft beschweren, sich alle bei ihm und er macht die
-                nächste Nacht durch um alles wieder auf den neusten Stand zu bringen. Er ist professineller Informatiker und kümmert sich um alles. 
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="card-wrap">
-            <div class="image-wrap">
-              <img src="../static/images/image_3.png" alt="#" />
-            </div>
-            <div class="content-wrap">
-              <h5 class="align-center m-0 display-5">
-                <strong> Nicholas  <br> Link</strong>
-              </h5>
-              <h6 class="align-center mb-3 display-4">
-                <strong>Chief Techonology Officer (CTO)</strong>
-              </h6>
-              <p class="align-center display-7">
-                Nicho steht Lucas immer zur Seite. Sollte die Technik streiken ist er stets zur Stelle um mit Lucas eine
-                Lösung zu finden. Auch er arbeitet gerne mal bis in die Abend-stunden um Unterstützung zu leisten. Sein Interesse für technik ist sehr groß.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-sm-6 col-lg-3">
-          <div class="card-wrap">
-            <div class="image-wrap">
-              <img src="../static/images/image_4.png" alt="#" />
-            </div>
-            <div class="content-wrap">
-              <h5 class="align-center m-0 display-5">
-                <strong>Alexander Paul</strong>
-              </h5>
-              <h6 class="align-center mb-3 display-4">
-                <strong>Chief Content Officer <br> (CCO)</strong>
-              </h6>
-              <p class="align-center display-7">
-                Alex kümmert sich um die Unternehmens - Kommunikation. Dabei lässt er das Unternehmen immer gut dastehen. Außerdem ist er der Verantwortliche für den Inhalt der Website und bereitet Unternehmens-präsentationen vor.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="card-wrap">
-            <div class="image-wrap">
-              <img src="../static/images/image_6.png" alt="#" />
-            </div>
-            <div class="content-wrap">
-              <h5 class="align-center m-0 display-5">
-                <strong>Jan <br>Wolter</strong>
-              </h5>
-              <h6 class="align-center mb-3 display-4">
-                <strong>Chief Knowledge Officer (CKO)</strong>
-              </h6>
-              <p class="align-center display-7">
-                Jan ist stets bemüht all unser Wissen zusammenzutragen, um neue Mitarbeiter einarbeiten zu können. 
-                Er verwaltet unser Wissen und ist damit das Gehirn des Unternehmens. 
-                Hat jemand Fragen kann er sich immer an ihn wenden.
-              </p>
-            </div>
-          </div>
-        </div>
+<section class="header14 cid-sFzz5E692j">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12 col-md-6 image-wrapper">
+        <img src="../static/images/finanzbild.jpg" alt="#" />
       </div>
-    </div>
-  </section>
-
-  <section class="content4 cid-sFzIdnt1ra" id="pricing">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-12 col-lg-10">
-          <h3 class="align-center mb-4 display-2">
-            <strong>Our Pricing Plan</strong>
-          </h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing2 cid-sFzDdjoEIw">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-6 align-center col-lg-3">
-          <div class="plan">
-            <div class="plan-header">
-              <h6 class="mb-3 display-5">
-                <strong>Monthly</strong>
-              </h6>
-              <div class="plan-price">
-                <p class="price m-0 display-2">
-                  <strong>14,99 €</strong>
-                </p>
-                <p class="price-term mb-3 display-7">
-                  <strong>Per month</strong>
-                </p>
-              </div>
-            </div>
-            <div class="plan-body">
-              <div class="plan-list mb-4">
-                <ul class="list-group list-group-flush display-7">
-                  <li class="list-group-item">Aktienprognose</li>
-                  <li class="list-group-item">Risikoanalyse</li>
-                </ul>
-              </div>
-              <div class="plan-footer text-center">
-                <a href="#" class="btn btn-primary-outline display-4">Get started</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 align-center col-lg-3">
-          <div class="plan">
-            <div class="plan-header">
-              <h6 class="mb-3 display-5">
-                <strong>Yearly</strong>
-              </h6>
-              <div class="plan-price">
-                <p class="price m-0 display-2">
-                  <strong>164,99 €</strong>
-                </p>
-                <p class="price-term mb-3 display-7">
-                  <strong>Per year</strong>
-                </p>
-              </div>
-            </div>
-            <div class="plan-body">
-              <div class="plan-list mb-4">
-                <ul class="list-group list-group-flush display-7">
-                  <li class="list-group-item">Aktienprognose</li>
-                  <li class="list-group-item">Risikoanalyse</li>
-                </ul>
-              </div>
-              <div class="plan-footer text-center">
-                <a href="#" class="btn btn-primary-outline display-4">Get started</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 align-center col-lg-3">
-          <div class="plan">
-            <div class="plan-header">
-              <h6 class="mb-3 display-5">
-                <strong>Lifetime</strong>
-              </h6>
-              <div class="plan-price">
-                <p class="price m-0 display-2">
-                  <strong>649,99 €</strong>
-                </p>
-                <p class="price-term mb-3 display-7">
-                  <strong>One time</strong>
-                </p>
-              </div>
-            </div>
-            <div class="plan-body">
-              <div class="plan-list mb-4">
-                <ul class="list-group list-group-flush display-7">
-                  <li class="list-group-item">Aktienprognose</li>
-                  <li class="list-group-item">Risikoanalyse</li>
-                </ul>
-              </div>
-              <div class="plan-footer text-center">
-                <a href="#" class="btn btn-primary-outline display-4">Get started</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 align-center col-lg-3">
-          <div class="plan">
-            <div class="plan-header">
-              <h6 class="mb-3 display-5">
-                <strong>Free trial</strong>
-              </h6>
-              <div class="plan-price">
-                <p class="price m-0 display-2">
-                  <strong>0,00 €</strong>
-                </p>
-                <p class="price-term mb-3 display-7">
-                  <strong>Test it for a week</strong>
-                </p>
-              </div>
-            </div>
-            <div class="plan-body">
-              <div class="plan-list mb-4">
-                <ul class="list-group list-group-flush display-7">
-                  <li class="list-group-item">Aktienprognose</li>
-                  <li class="list-group-item">Risikoanalyse</li>
-
-                </ul>
-              </div>
-              <div class="plan-footer text-center">
-                <a href="#" class="btn btn-primary-outline display-4">Get started</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="content10 cid-sFAZRnJnnI">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md">
-          <h6 class="mb-4 display-2">
-            <strong>Why clients choose FID€O?</strong>
-          </h6>
-        </div>
-        <div class="col-md-12 col-lg-6">
+      <div class="col-12 col-md">
+        <div class="text-wrapper">
+          <h1 class="mb-3 display-2">
+            <strong>Was ist FID€O?</strong>
+          </h1>
           <p class="display-7">
-            Mit FID€O ist es möglich immer die Nummer 1 im Bereich Aktien zu sein, da man die besten Aktienkäufe und -verkäufe tätigen kann.
+            Mit FID€O kann man den aktuellen Aktienmarkt einsehen und sich seine Favoriten in seinem Kundenkonto
+            hinterlegen.
+            Mit einem Abonnement ist es möglich Vorhersagen zu Aktien zu erhalten, sowie eine Risikoanalyse in seinem
+            Account zu hinterlegen.
+            Mit dieser ist es möglich Aktien auf Grund seiner Risikobereitschaft angezeigt zu bekommen.
             <br /><br />
-            Mit unserer Erfahrung im Bereich Finanzen bieten Wir ein gutes Angebot und stellen unsere Kunden zufrieden.
+            Das FID€O - Abonnement kann durch ein monatliches Entgelt abgeschlossen werden.
+            <br />
           </p>
+          <div class="mbr-section-btn mt-3">
+            <a class="btn btn-primary display-4" href="#pricing">Get started!</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="contacts4 cid-sFAyMcKwph">
-    <div class="container">
-      <div class="row align-items-center justify-content-center">
-        <div class="text-content col-12 col-md-6">
-          <h2 class="display-2">
-            <strong>Follow Us</strong>
-          </h2>
-          <p class="display-7">
-            Auf den verschiedenen Social Media Plattformen zeigen wir gerne wie viel Spaß man bei der Arbeit haben kann.
-            Folgt uns gerne wenn ihr uns besser kennenlernen wollt.<br>
-            Zudem bleiben unsere Follower stets Up-to-Date was die neuesten Features an geht.<br />
-          </p>
-        </div>
-        <div class="icons d-flex align-items-center col-12 col-md-6 justify-content-end mt-md-0 mt-2 flex-wrap">
-          <a href="https://twitter.com/elonmusk?t=ttXDPbL_0MuNpcdoPZypqQ&s=09" target="_blank">
-            <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-          </a>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1" target="_blank">
-            <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-          </a>
-          <a href="https://instagram.com/thelabs_and_wienerdogs?igshid=YmMyMTA2M2Y=" target="_blank">
-            <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contacts2 cid-sFzIA7KGYz">
-    <div class="container">
-      <div class="section-head">
-        <h3 class="align-center mb-0 display-2">
-          <strong>Contacts</strong>
+<section class="team1 cid-sFzErVWEaH">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <h3 class="align-center mb-5 display-2">
+          <strong>Professional Team</strong>
         </h3>
       </div>
-      <div class="row justify-content-center mt-4">
-        <div class="card col-12 col-md-6">
-          <div class="card-wrapper">
-            <div class="image-wrapper">
-              <span class="mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
-            </div>
-            <div class="text-wrapper">
-              <h6 class="mb-1 display-5">
-                <strong>Phone</strong>
-              </h6>
-              <p class="display-7">
-                <a href="tel:+1727160941" class="text-primary">(+49) 172 7187420</a>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card-wrap">
+          <div class="image-wrap">
+            <img src="../static/images/image_2.png" alt="#" />
+          </div>
+          <div class="content-wrap">
+            <h5 class="align-center m-0 display-5">
+              <strong>Adrian <br>Setz</strong>
+            </h5>
+            <h6 class="align-center mb-3 display-4">
+              <strong>Chief Executive Officer (CEO)</strong>
+            </h6>
+            <p class="align-center display-7">
+              Adrian ist der Chef unseres jungen Startups. Er triff die wichtigen Entscheidungen für uns und hält
+              somit auch den Kopf für unser Team hin. Wenn jemand mit unserem Unternehmen ein Problem hat - dann ist
+              garantiert Adrian schuld.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card-wrap">
+          <div class="image-wrap">
+            <img src="../static/images/image_1.png" alt="#" />
+          </div>
+          <div class="content-wrap">
+            <h5 class="align-center m-0 display-5">
+              <strong>Lars <br> Kurschilgen</strong>
+            </h5>
+            <h6 class="align-center mb-3 display-4">
+              <strong>Chief Financial Officer (CFO)</strong>
+            </h6>
+            <p class="align-center display-7">
+              Lars kümmert sich gerne ums Geld. Egal ob die Finanzen der Firma oder der Anleger, Lars schaut immer, dass
+              Wir am Ende Gewinn machen.
+              Wenn Lucas die neueste Hardware für die Server haben will, muss er erstmal an Lars vorbei.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card-wrap">
+          <div class="image-wrap">
+            <img src="../static/images/image_5.png" alt="#" />
+          </div>
+          <div class="content-wrap">
+            <h5 class="align-center m-0 display-5">
+              <strong>Lucas<br> Wätzig</strong>
+            </h5>
+            <h6 class="align-center mb-3 display-4">
+              <strong>Chief Operating Officer (COO)</strong>
+            </h6>
+            <p class="align-center display-7">
+              Lucas ist unser Programmier-ass. Wenn etwas nicht läuft beschweren, sich alle bei ihm und er macht die
+              nächste Nacht durch um alles wieder auf den neusten Stand zu bringen. Er ist professineller Informatiker
+              und kümmert sich um alles.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="card-wrap">
+          <div class="image-wrap">
+            <img src="../static/images/image_3.png" alt="#" />
+          </div>
+          <div class="content-wrap">
+            <h5 class="align-center m-0 display-5">
+              <strong> Nicholas <br> Link</strong>
+            </h5>
+            <h6 class="align-center mb-3 display-4">
+              <strong>Chief Techonology Officer (CTO)</strong>
+            </h6>
+            <p class="align-center display-7">
+              Nicho steht Lucas immer zur Seite. Sollte die Technik streiken ist er stets zur Stelle um mit Lucas eine
+              Lösung zu finden. Auch er arbeitet gerne mal bis in die Abend-stunden um Unterstützung zu leisten. Sein
+              Interesse für technik ist sehr groß.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="card-wrap">
+          <div class="image-wrap">
+            <img src="../static/images/image_4.png" alt="#" />
+          </div>
+          <div class="content-wrap">
+            <h5 class="align-center m-0 display-5">
+              <strong>Alexander Paul</strong>
+            </h5>
+            <h6 class="align-center mb-3 display-4">
+              <strong>Chief Content Officer <br> (CCO)</strong>
+            </h6>
+            <p class="align-center display-7">
+              Alex kümmert sich um die Unternehmens - Kommunikation. Dabei lässt er das Unternehmen immer gut dastehen.
+              Außerdem ist er der Verantwortliche für den Inhalt der Website und bereitet Unternehmens-präsentationen
+              vor.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="card-wrap">
+          <div class="image-wrap">
+            <img src="../static/images/image_6.png" alt="#" />
+          </div>
+          <div class="content-wrap">
+            <h5 class="align-center m-0 display-5">
+              <strong>Jan <br>Wolter</strong>
+            </h5>
+            <h6 class="align-center mb-3 display-4">
+              <strong>Chief Knowledge Officer (CKO)</strong>
+            </h6>
+            <p class="align-center display-7">
+              Jan ist stets bemüht all unser Wissen zusammenzutragen, um neue Mitarbeiter einarbeiten zu können.
+              Er verwaltet unser Wissen und ist damit das Gehirn des Unternehmens.
+              Hat jemand Fragen kann er sich immer an ihn wenden.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content4 cid-sFzIdnt1ra" id="pricing">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <h3 class="align-center mb-4 display-2">
+          <strong>Our Pricing Plan</strong>
+        </h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing2 cid-sFzDdjoEIw">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 align-center col-lg-3">
+        <div class="plan">
+          <div class="plan-header">
+            <h6 class="mb-3 display-5">
+              <strong>Monthly</strong>
+            </h6>
+            <div class="plan-price">
+              <p class="price m-0 display-2">
+                <strong>14,99 €</strong>
+              </p>
+              <p class="price-term mb-3 display-7">
+                <strong>Per month</strong>
               </p>
             </div>
           </div>
-        </div>
-        <div class="card col-12 col-md-6">
-          <div class="card-wrapper">
-            <div class="image-wrapper">
-              <span class="mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
+          <div class="plan-body">
+            <div class="plan-list mb-4">
+              <ul class="list-group list-group-flush display-7">
+                <li class="list-group-item">Aktienprognose</li>
+                <li class="list-group-item">Risikoanalyse</li>
+              </ul>
             </div>
-            <div class="text-wrapper">
-              <h6 class="mb-1 display-5">
-                <strong>Email</strong>
-              </h6>
-              <p class="display-7">
-                <a href="#" class="text-primary">fideo@softwareexcellence.de</a>
+            <div class="plan-footer text-center">
+              <a href="#" class="btn btn-primary-outline display-4">Get started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 align-center col-lg-3">
+        <div class="plan">
+          <div class="plan-header">
+            <h6 class="mb-3 display-5">
+              <strong>Yearly</strong>
+            </h6>
+            <div class="plan-price">
+              <p class="price m-0 display-2">
+                <strong>164,99 €</strong>
+              </p>
+              <p class="price-term mb-3 display-7">
+                <strong>Per year</strong>
               </p>
             </div>
           </div>
-        </div>
-        <div class="card col-12 col-md-6">
-          <div class="card-wrapper">
-            <div class="image-wrapper">
-              <span class="mbr-iconfont mobi-mbri-globe mobi-mbri"></span>
+          <div class="plan-body">
+            <div class="plan-list mb-4">
+              <ul class="list-group list-group-flush display-7">
+                <li class="list-group-item">Aktienprognose</li>
+                <li class="list-group-item">Risikoanalyse</li>
+              </ul>
             </div>
-            <div class="text-wrapper">
-              <h6 class="mb-1 display-5">
-                <strong>Address</strong>
-              </h6>
-              <p class="display-7">Am Teichmann 18, 61525 Buxtehude</p>
+            <div class="plan-footer text-center">
+              <a href="#" class="btn btn-primary-outline display-4">Get started</a>
             </div>
           </div>
         </div>
-        <div class="card col-12 col-md-6">
-          <div class="card-wrapper">
-            <div class="image-wrapper">
-              <span class="mbr-iconfont mobi-mbri-bulleted-list mobi-mbri"></span>
+      </div>
+      <div class="col-12 col-md-6 align-center col-lg-3">
+        <div class="plan">
+          <div class="plan-header">
+            <h6 class="mb-3 display-5">
+              <strong>Lifetime</strong>
+            </h6>
+            <div class="plan-price">
+              <p class="price m-0 display-2">
+                <strong>649,99 €</strong>
+              </p>
+              <p class="price-term mb-3 display-7">
+                <strong>One time</strong>
+              </p>
             </div>
-            <div class="text-wrapper">
-              <h6 class="mb-1 display-5">
-                <strong>Working Hours</strong>
-              </h6>
-              <p class="display-7">Mo - Mi: 9:00 - 11:00</p>
+          </div>
+          <div class="plan-body">
+            <div class="plan-list mb-4">
+              <ul class="list-group list-group-flush display-7">
+                <li class="list-group-item">Aktienprognose</li>
+                <li class="list-group-item">Risikoanalyse</li>
+              </ul>
+            </div>
+            <div class="plan-footer text-center">
+              <a href="#" class="btn btn-primary-outline display-4">Get started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 align-center col-lg-3">
+        <div class="plan">
+          <div class="plan-header">
+            <h6 class="mb-3 display-5">
+              <strong>Free trial</strong>
+            </h6>
+            <div class="plan-price">
+              <p class="price m-0 display-2">
+                <strong>0,00 €</strong>
+              </p>
+              <p class="price-term mb-3 display-7">
+                <strong>Test it for a week</strong>
+              </p>
+            </div>
+          </div>
+          <div class="plan-body">
+            <div class="plan-list mb-4">
+              <ul class="list-group list-group-flush display-7">
+                <li class="list-group-item">Aktienprognose</li>
+                <li class="list-group-item">Risikoanalyse</li>
+
+              </ul>
+            </div>
+            <div class="plan-footer text-center">
+              <a href="#" class="btn btn-primary-outline display-4">Get started</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="footer3 cid-sFCygHrmNf" once="footers">
-    <div class="container">
-      <div class="row align-center mbr-white">
-        <div class="row row-links">
-          <ul class="foot-menu">
-            <li class="display-7">
-              <a href="{%url 'index' %}" class="text-white">Home</a>
-            </li>
-            <li class="display-7">
-              <a href="{%url 'aboutUs' %}" class="text-white">About Us</a>
-            </li>
-            <li class="display-7">
-              <a href="#" class="text-white">Mein Portfolio</a>
-            </li>
-            <li class="display-7">
-              <a href="{%url 'impressum' %}" class="text-white" target="_blank">Impressum</a>
-            </li>
-          </ul>
+<section class="content10 cid-sFAZRnJnnI">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md">
+        <h6 class="mb-4 display-2">
+          <strong>Why clients choose FID€O?</strong>
+        </h6>
+      </div>
+      <div class="col-md-12 col-lg-6">
+        <p class="display-7">
+          Mit FID€O ist es möglich immer die Nummer 1 im Bereich Aktien zu sein, da man die besten Aktienkäufe und
+          -verkäufe tätigen kann.
+          <br /><br />
+          Mit unserer Erfahrung im Bereich Finanzen bieten Wir ein gutes Angebot und stellen unsere Kunden zufrieden.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts4 cid-sFAyMcKwph">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="text-content col-12 col-md-6">
+        <h2 class="display-2">
+          <strong>Follow Us</strong>
+        </h2>
+        <p class="display-7">
+          Auf den verschiedenen Social Media Plattformen zeigen wir gerne wie viel Spaß man bei der Arbeit haben kann.
+          Folgt uns gerne wenn ihr uns besser kennenlernen wollt.<br>
+          Zudem bleiben unsere Follower stets Up-to-Date was die neuesten Features an geht.<br />
+        </p>
+      </div>
+      <div class="icons d-flex align-items-center col-12 col-md-6 justify-content-end mt-md-0 mt-2 flex-wrap">
+        <a href="https://twitter.com/elonmusk?t=ttXDPbL_0MuNpcdoPZypqQ&s=09" target="_blank">
+          <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1" target="_blank">
+          <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+        </a>
+        <a href="https://instagram.com/thelabs_and_wienerdogs?igshid=YmMyMTA2M2Y=" target="_blank">
+          <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts2 cid-sFzIA7KGYz">
+  <div class="container">
+    <div class="section-head">
+      <h3 class="align-center mb-0 display-2">
+        <strong>Contacts</strong>
+      </h3>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="card col-12 col-md-6">
+        <div class="card-wrapper">
+          <div class="image-wrapper">
+            <span class="mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
+          </div>
+          <div class="text-wrapper">
+            <h6 class="mb-1 display-5">
+              <strong>Phone</strong>
+            </h6>
+            <p class="display-7">
+              <a href="tel:+1727160941" class="text-primary">(+49) 172 7187420</a>
+            </p>
+          </div>
         </div>
-        <div class="row social-row">
-          <div class="social-list align-right pb-2">
-            <div class="soc-item">
-              <a href="https://twitter.com/elonmusk?t=ttXDPbL_0MuNpcdoPZypqQ&s=09" target="_blank">
-                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-              </a>
-            </div>
-            <div class="soc-item">
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1" target="_blank">
-                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-              </a>
-            </div>
-            <div class="soc-item">
-              <a href="https://instagram.com/thelabs_and_wienerdogs?igshid=YmMyMTA2M2Y=" target="_blank">
-                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
-              </a>
-            </div>
+      </div>
+      <div class="card col-12 col-md-6">
+        <div class="card-wrapper">
+          <div class="image-wrapper">
+            <span class="mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
+          </div>
+          <div class="text-wrapper">
+            <h6 class="mb-1 display-5">
+              <strong>Email</strong>
+            </h6>
+            <p class="display-7">
+              <a href="#" class="text-primary">fideo@softwareexcellence.de</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card col-12 col-md-6">
+        <div class="card-wrapper">
+          <div class="image-wrapper">
+            <span class="mbr-iconfont mobi-mbri-globe mobi-mbri"></span>
+          </div>
+          <div class="text-wrapper">
+            <h6 class="mb-1 display-5">
+              <strong>Address</strong>
+            </h6>
+            <p class="display-7">Am Teichmann 18, 61525 Buxtehude</p>
+          </div>
+        </div>
+      </div>
+      <div class="card col-12 col-md-6">
+        <div class="card-wrapper">
+          <div class="image-wrapper">
+            <span class="mbr-iconfont mobi-mbri-bulleted-list mobi-mbri"></span>
+          </div>
+          <div class="text-wrapper">
+            <h6 class="mb-1 display-5">
+              <strong>Working Hours</strong>
+            </h6>
+            <p class="display-7">Mo - Mi: 9:00 - 11:00</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <script src="../static/js/bootstrap.bundle.min.js"></script>
-  <script src="../static/js/smooth-scroll.js"></script>
-  <script src="../static/js/navbar-dropdown.js"></script>
-  <script src="../static/js/social-likes.js"></script>
-  <script src="../static/js/script.js"></script>
-  <script src="../static/js/formoid.min.js"></script>
-
-</body>
-
-</html>
+  </div>
+</section>
+{%endblock %}
