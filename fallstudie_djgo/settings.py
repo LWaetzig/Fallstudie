@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # own app(s)
     "fideo",
 
+    # third party apps / plugins
     "widget_tweaks",
 ]
 
@@ -61,7 +63,7 @@ ROOT_URLCONF = "fallstudie_djgo.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "fideo/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
