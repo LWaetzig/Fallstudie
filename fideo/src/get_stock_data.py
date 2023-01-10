@@ -1,5 +1,70 @@
+import os
+
 import pandas as pd
 import plotly.graph_objects as go
+import yfinance as yf
+
+from fideo.src.finvispro import web_scraping
+
+
+def get_stock_data():
+    """function to get all necessary information and historical share price"""
+
+    data_storage_path = os.path.join("fideo" , "data")
+    hist_data_path = os.path.join(data_storage_path , "hist")
+
+    if not os.path.exists(hist_data_path):
+        os.makedirs(hist_data_path)
+
+    shares = [
+        "AMZN",
+        "GOOG",
+        "BNTX",
+        "NKE",
+        "AAPL",
+        "KO",
+        "META",
+        "MSFT",
+        "NVDA",
+        "PYPL",
+        "SAP",
+        "TSLA",
+    ]
+
+    columns = [
+        "tag",
+        "name",
+        "sector",
+        "volatility",
+        "peg_ratio",
+        "betafactor",
+        "histpath",
+    ]
+    df = pd.DataFrame(columns=columns)
+
+    # get compund value vom nlp algorithm to classify news depending to the share
+    dfcompounds = web_scraping()
+
+    for i, tag in enumerate(shares):
+        ticker = yf.Ticker(str(tag))
+        history = ticker.history(period="1y", actions=False)
+        history.to_csv(f"{data_storage_path}/{tag}.csv")
+
+        df.loc[i, "tag"] = tag
+        df.loc[i, "name"] = str(ticker.info["longName"])
+        df.loc[i, "sector"] = str(ticker.info["sector"])
+        df.loc[i, "peg_ratio"] = float(ticker.info["pegRatio"])
+        df.loc[i, "betafactor"] = float(ticker.info["beta"])
+        df.loc[i, "histpath"] = f"shares/{tag}.csv"
+        df.loc[i, "volatility"] = (history["Close"].pct_change().std() * 100).round(2)
+
+    # merge dataframe containing all necessary information with compund dataframe
+    df = pd.merge(df, dfcompounds, on="tag", how="left")
+
+
+    df.to_csv(f"{hist_data_path}/sharesdata.csv")
+
+get_stock_data()
 
 def create_visualization(file_path: str):
     """function to create a plot using plotly to display the historical share price
