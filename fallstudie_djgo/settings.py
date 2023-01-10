@@ -43,9 +43,6 @@ INSTALLED_APPS = [
 
     # own app(s)
     "fideo",
-
-    # third party apps / plugins
-    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
