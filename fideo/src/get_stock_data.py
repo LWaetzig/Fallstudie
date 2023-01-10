@@ -57,6 +57,9 @@ def get_stock_data():
         df.loc[i, "betafactor"] = float(ticker.info["beta"])
         df.loc[i, "histpath"] = f"{hist_data_path}/{tag}.csv"
         df.loc[i, "volatility"] = (history["Close"].pct_change().std() * 100).round(2)
+        df.loc[i , "market_cap"] = int(ticker.info["marketCap"])
+        df.loc[i , "volume"] = int(ticker.info["volume"])
+        df.loc[i , "last_close_price"] = history["Close"][-1].round(3)
 
     # merge dataframe containing all necessary information with compund dataframe
     df = pd.merge(df, dfcompounds, on="tag", how="left")
