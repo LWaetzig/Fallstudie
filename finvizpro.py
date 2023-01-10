@@ -2,7 +2,7 @@ from urllib.request import Request, urlopen
 
 import pandas as pd
 from bs4 import BeautifulSoup
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
 def web_scraping():
@@ -61,4 +61,4 @@ def web_scraping():
     parsed_and_scored_news["date"] = pd.to_datetime(parsed_and_scored_news.date).dt.date
     compounddata = parsed_and_scored_news.groupby(["ticker"])
     compoundmean = pd.DataFrame(compounddata["compound"].mean()).reset_index()
-    return compoundmean.to_csv("finviznews")
+    return compoundmean.to_csv("finviznews.csv")
