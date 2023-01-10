@@ -1,22 +1,16 @@
 import os
-
 import pandas as pd
 import yfinance as yf
-
 import warnings
-
 from Finvizpro_copy_edited import web_scraping
 
 warnings.simplefilter("ignore")
 
 def get_stock_data():
-    """function to get all necessary information and historical share price
-    
-    first run the Finvizpro program"""
+    """function to get all necessary information and historical share price"""
 
-    # define list with seleted shares
     shares = ['AMZN',"GOOG","BNTX","NKE","AAPL","KO","META","MSFT","NVDA","PYPL","SAP","TSLA"]
-    # create csv file for historical share prices
+
     if not os.path.exists("shares"):
         os.mkdir("shares")
 
