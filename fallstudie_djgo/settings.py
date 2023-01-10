@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 
     # own app(s)
     "fideo",
+
+    # third party apps
+    "multiforloop",
 ]
 
 MIDDLEWARE = [
