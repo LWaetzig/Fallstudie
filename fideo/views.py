@@ -18,12 +18,10 @@ def fideo_view(request):
     fig1 = create_visualization("fideo/data/AAPL.csv")
     fig2 = create_visualization("fideo/data/AMZN.csv")
     fig3 = create_visualization("fideo/data/TSLA.csv")
-    fig4 = create_visualization("fideo/data/TSLA.csv")
 
     plot1 = plot(fig1 , output_type="div")
     plot2 = plot(fig2 , output_type="div")
     plot3 = plot(fig3 , output_type="div")
-    plot4 = plot(fig4 , output_type="div")
 
 
     context = {
@@ -32,9 +30,7 @@ def fideo_view(request):
         "plot2" : plot2,
         "share_tag2" : "Amazon 4Müll",
         "plot3" : plot3,
-        "share_tag3" : "Telsa",
-        "plot4" : plot4,
-        "share_tag4" : "Deutsche Bank"
+        "share_tag3" : "Tesla",
     }
 
     return render(request=request, template_name="fideo.html" , context=context)
