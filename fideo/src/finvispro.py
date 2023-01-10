@@ -62,5 +62,5 @@ def web_scraping():
     parsed_and_scored_news = parsed_and_scored_news.join(scores_df, rsuffix="_right")
     parsed_and_scored_news["date"] = pd.to_datetime(parsed_and_scored_news.date).dt.date
     compounddata = parsed_and_scored_news.groupby(["tag"])
-    compoundmean = pd.DataFrame(compounddata["compound"].mean()).reset_index()
+    compoundmean = pd.DataFrame(compounddata["compound"].mean().round(2)).reset_index()
     return compoundmean
