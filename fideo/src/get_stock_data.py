@@ -66,7 +66,7 @@ def get_stock_data():
 
     df.to_csv(f"{data_storage_path}/sharesdata.csv")
 
-def create_visualization(file_path: str):
+def create_small_visualization(file_path: str):
     """function to create a plot using plotly to display the historical share price
 
     Args:
@@ -109,5 +109,54 @@ def create_visualization(file_path: str):
             "showgrid": False,
             "showticklabels": False},
     )
+
+    return fig
+
+
+def create_full_visualization(file_path : str):
+    """function to generat a bigger visualization with zoom and paning function
+
+    Args:
+        file_path (str): path to historical share data 
+    
+    Returns:
+        function: returns a figure containing the plot
+    """
+    df = pd.read_csv(file_path, index_col=0)
+
+    candlestick = go.Candlestick(
+        x=df.index,
+        open=df["Open"],
+        high=df["High"],
+        low=df["Low"],
+        close=df["Close"],
+    )
+    fig = go.Figure()
+    fig.add_trace(candlestick)
+
+    fig.update_layout(
+        autosize=False,
+        margin=dict(l=0, r=0, b=0, t=0),
+        height=300,
+        width=600,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        showlegend=False,
+        xaxis={
+            "fixedrange": True,
+            "rangeslider": {"visible": True},
+            "showgrid": True,
+            "gridcolor" : "grey",
+            "showticklabels": True,
+            "griddash" :"dash",
+            "minor_griddash" : "dot",
+        },
+        yaxis={
+            "fixedrange": True,
+            "showgrid": False,
+            "showticklabels": False},
+    )
+
+
 
     return fig
