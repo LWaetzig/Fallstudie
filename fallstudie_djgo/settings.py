@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # third party apps
     "multiforloop",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
