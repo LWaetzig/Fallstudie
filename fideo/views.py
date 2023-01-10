@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from plotly.offline import plot
-from .models import Share
 
-from .src.get_stock_data import create_visualization
+from .models import Share
+from .src.get_stock_data import (create_full_visualization,
+                                 create_small_visualization)
+
 
 # Create your views here.
 def home_view(request):
@@ -19,22 +21,26 @@ def risk_analysis_view(request):
 
 def fideo_view(request):
 
-    share_list = Share.objects.all()
-    pop_shares = dict()
+    share_list = Share.objects.all().order_by("share_name")
+    all_share_plots = list()
+    for i in share_list:
+        fig = create_full_visualization(str(i.share_historical))
+        all_share_plots.append(plot(fig, output_type="div"))
 
-
-    fig1 = create_visualization("fideo/data/hist/AAPL.csv")
-    fig2 = create_visualization("fideo/data/hist/AMZN.csv")
-    fig3 = create_visualization("fideo/data/hist/TSLA.csv")
-
-    plot1 = plot(fig1, output_type="div")
-    plot2 = plot(fig2, output_type="div")
-    plot3 = plot(fig3, output_type="div")
+    # define most popular shares depending on their market capitalisation
+    sh_list_market_cap = Share.objects.all().order_by("-share_market_cap").values()
+    pop_shares = sh_list_market_cap[:3]
+    pop_share_plots = list()
+    for i in pop_shares:
+        fig = create_small_visualization(str(i["share_historical"]))
+        pop_share_plots.append(plot(fig, output_type="div"))
 
     context = {
-        "share_list" : share_list,
-
-        "plots" : [plot1, plot2, plot3],
+        "share_list": share_list,
+        "all_share_plots": all_share_plots,
+        "pop_shares": pop_shares,
+        "pop_share_plots": pop_share_plots,
+        "pop_share_counter": range(4),
     }
 
     return render(request=request, template_name="fideo.html", context=context)
