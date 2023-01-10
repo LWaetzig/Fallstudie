@@ -2,6 +2,7 @@ import os
 
 import pandas as pd
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import yfinance as yf
 
 from fideo.src.finvispro import web_scraping
@@ -131,8 +132,16 @@ def create_full_visualization(file_path : str):
         low=df["Low"],
         close=df["Close"],
     )
-    fig = go.Figure()
+
+    scatter = go.Scatter(
+        x=df.index,
+        y=df["Close"],
+        opacity=0.5
+    )
+    fig = make_subplots(specs=[[{"secondary_y" : False}]])
+    fig.add_trace(scatter)
     fig.add_trace(candlestick)
+    
 
     fig.update_layout(
         autosize=False,
