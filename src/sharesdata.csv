@@ -1,0 +1,13 @@
+,tag,name,sector,volatility,peg_ratio,betafactor,histpath,compound
+0,AMZN,"Amazon.com, Inc.",Consumer Cyclical,3.17,-33.6,1.194683,shares/AMZN.csv,0.09612399999999999
+1,GOOG,Alphabet Inc.,Communication Services,2.43,2.11,1.069061,shares/GOOG.csv,0.055381
+2,BNTX,BioNTech SE,Healthcare,4.07,-0.08,0.255847,shares/BNTX.csv,0.043093000000000006
+3,NKE,"NIKE, Inc.",Consumer Cyclical,2.65,5.89,1.086501,shares/NKE.csv,0.145414
+4,AAPL,Apple Inc.,Technology,2.26,2.4,1.27241,shares/AAPL.csv,0.023412000000000002
+5,KO,The Coca-Cola Company,Consumer Defensive,1.25,4.77,0.592672,shares/KO.csv,0.215596
+6,META,"Meta Platforms, Inc.",Communication Services,4.05,-0.81,1.164283,shares/META.csv,-0.08671799999999999
+7,MSFT,Microsoft Corporation,Technology,2.24,1.85,0.926403,shares/MSFT.csv,0.110959
+8,NVDA,NVIDIA Corporation,Technology,3.99,2.25,1.722009,shares/NVDA.csv,0.131803
+9,PYPL,"PayPal Holdings, Inc.",Financial Services,3.71,1.66,1.278688,shares/PYPL.csv,0.10813700000000001
+10,SAP,SAP SE,Technology,2.12,271.12,0.98745,shares/SAP.csv,0.172704
+11,TSLA,"Tesla, Inc.",Consumer Cyclical,4.19,0.85,2.030345,shares/TSLA.csv,-0.005186
