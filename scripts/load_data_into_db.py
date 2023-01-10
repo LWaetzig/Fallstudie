@@ -21,7 +21,10 @@ def run():
                 share_peg_ratio=row[5],
                 share_beta_factor=row[6],
                 share_historical=row[7],
-                share_compound=row[8],
+                share_market_cap=row[8],
+                share_volume=row[9],
+                last_share_price=row[10],
+                share_compound=row[11],
             )
 
             share.save()
