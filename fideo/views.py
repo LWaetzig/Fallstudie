@@ -13,31 +13,41 @@ def about_us_view(request):
     return render(request=request, template_name="aboutUs.html")
 
 
+def risk_analysis_view(request):
+    return render(request=request, template_name="risikoanalyse.html")
+
+
 def fideo_view(request):
 
     fig1 = create_visualization("fideo/data/AAPL.csv")
     fig2 = create_visualization("fideo/data/AMZN.csv")
     fig3 = create_visualization("fideo/data/TSLA.csv")
-    fig4 = create_visualization("fideo/data/TSLA.csv")
 
-    plot1 = plot(fig1 , output_type="div")
-    plot2 = plot(fig2 , output_type="div")
-    plot3 = plot(fig3 , output_type="div")
-    plot4 = plot(fig4 , output_type="div")
-
+    plot1 = plot(fig1, output_type="div")
+    plot2 = plot(fig2, output_type="div")
+    plot3 = plot(fig3, output_type="div")
 
     context = {
-        "plot1" : plot1,
-        "share_tag1" : "Apple Inc.",
-        "plot2" : plot2,
-        "share_tag2" : "Amazon 4Müll",
-        "plot3" : plot3,
-        "share_tag3" : "Telsa",
-        "plot4" : plot4,
-        "share_tag4" : "Deutsche Bank"
+        "plots" : [plot1, plot2, plot3],
+        "tags" : ["Apple Inc." , "Amazon 4Müll" , "Tesla"],
+        "name_list": [
+            "ADDDF",
+            "ALIZF",
+            "GOOGL",
+            "AMZN",
+            "AAPL",
+            "BFFAF",
+            "BAYZF",
+            "BNTX",
+            "BAMXF",
+            "KO",
+            "CRZBF",
+            "MBGAF",
+        ],
+        "template_grid": range(4),
     }
 
-    return render(request=request, template_name="fideo.html" , context=context)
+    return render(request=request, template_name="fideo.html", context=context)
 
 
 def impressum_view(request):
