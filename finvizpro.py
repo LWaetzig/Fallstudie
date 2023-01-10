@@ -15,7 +15,6 @@ def web_scraping():
         "NKE",
         "AAPL",
         "KO",
-        "DB",
         "META",
         "MSFT",
         "NVDA",
