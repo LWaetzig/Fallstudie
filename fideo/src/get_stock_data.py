@@ -55,16 +55,13 @@ def get_stock_data():
         df.loc[i, "sector"] = str(ticker.info["sector"])
         df.loc[i, "peg_ratio"] = float(ticker.info["pegRatio"])
         df.loc[i, "betafactor"] = float(ticker.info["beta"])
-        df.loc[i, "histpath"] = f"shares/{tag}.csv"
+        df.loc[i, "histpath"] = f"{hist_data_path}/{tag}.csv"
         df.loc[i, "volatility"] = (history["Close"].pct_change().std() * 100).round(2)
 
     # merge dataframe containing all necessary information with compund dataframe
     df = pd.merge(df, dfcompounds, on="tag", how="left")
 
-
     df.to_csv(f"{data_storage_path}/sharesdata.csv")
-
-get_stock_data()
 
 def create_visualization(file_path: str):
     """function to create a plot using plotly to display the historical share price
