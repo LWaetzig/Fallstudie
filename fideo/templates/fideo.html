@@ -10,23 +10,19 @@
       </h4>
     </div>
     <div class="row mt-4">
-      {% for plot in plots; tag in tags %}
+      {% for pop_share in pop_shares; pop_plot in pop_share_plots %}
       <div class="item features-image col-4 col-4 col-4">
         <div class="item-wrapper">
           <div class="item-img">
-            {{ plot | safe}}
+            {{ pop_plot | safe}}
           </div>
           <div class="item-content">
             <h5 class="display-5">
-              <strong>{{tag}}</strong>
+              <strong>{{pop_share.share_name}}</strong>
             </h5>
-            <p class="mt-3 display-7">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam nisi non neque assumenda at voluptate,
-              rem..
-            </p>
           </div>
           <div class="mbr-section-btn item-footer mt-2">
-            <a href="#divOne" class="btn btn-primary display-4">More information</a>
+            <a href="#{{pop_share.share_tag}}" class="btn btn-primary display-4">More information</a>
           </div>
         </div>
       </div>
@@ -37,68 +33,6 @@
 
 
 
-
-<section class="pp-window">
-  <div class="overlay" id="divOne"> <!--first popup window-->
-    <div class="wrapper">
-      <h5 class="display-5 align-center">
-        <strong>Share 1</strong>
-      </h5>
-      <a href="#" class="close">&times;</a>
-      <div class="share-image"> <!-- container for share visualiztaion-->
-        <p>IMAGE</p>
-      </div>
-      <p class="mt-3 display-7">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eligendi temporibus est? Praesentium numquam
-        alias quae necessitatibus magnam error distinctio inventore dicta nisi nemo saepe, aliquam unde sequi dolorum
-        odio!
-      </p>
-      <div class="mbr-section-btn item-footer mt-2">
-        <a class="btn add-btn display-7">Add to Watchlist</a>
-      </div>
-    </div>
-  </div>
-  <div class="overlay" id="divTwo"> <!--first popup window-->
-    <div class="wrapper">
-      <h5 class="display-5 align-center">
-        <strong>Share 2</strong>
-      </h5>
-      <a href="#" class="close">&times;</a>
-      <div class=""> <!-- container for share visualiztaion-->
-        <p>IMAGE</p>
-      </div>
-      <p class="mt-3 display-7">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eligendi temporibus est? Praesentium numquam
-        alias quae necessitatibus magnam error distinctio inventore dicta nisi nemo saepe, aliquam unde sequi dolorum
-        odio!
-      </p>
-      <div class="mbr-section-btn item-footer mt-2">
-        <a class="btn add-btn display-7">Add to Watchlist</a>
-      </div>
-    </div>
-  </div>
-  <div class="overlay" id="divThree"> <!--first popup window-->
-    <div class="wrapper">
-      <h5 class="display-5 align-center">
-        <strong>Share 3</strong>
-      </h5>
-      <a href="#" class="close">&times;</a>
-      <div class=""> <!-- container for share visualiztaion-->
-        <p>IMAGE</p>
-      </div>
-      <p class="mt-3 display-7">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eligendi temporibus est? Praesentium numquam
-        alias quae necessitatibus magnam error distinctio inventore dicta nisi nemo saepe, aliquam unde sequi dolorum
-        odio!
-      </p>
-      <div class="mbr-section-btn item-footer mt-2">
-        <a class="btn add-btn display-7">Add to Watchlist</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <section class="cid-sFzFvgBfc0">
   <div class="container">
     <div class="sctn-heading">
@@ -107,18 +41,22 @@
       </h4>
     </div>
     <div class="row mt-4">
-      {% for item in name_list %}
-      <div class="item features-image col-4 col-4 col-4">
+      {% for share in share_list ; plot in all_share_plots %}
+      <div class="item features-image col-6 col-6" id="{{share.share_tag}}">
         <div class="item-wrapper">
+          {{plot | safe}}
           <div class="item-img">
           </div>
           <div class="item-content">
             <h5 class="display-5">
-              <strong>{{item}}</strong>
+              <strong>{{share.share_name}}</strong>
             </h5>
-          </div>
-          <div class="mbr-section-btn item-footer mt-2">
-            <a href="" class="btn btn-primary display-4">More information</a>
+            <ul class="display-7">
+              <li> Sector : {{share.share_sector}} </li>
+              <li> Market capitalization : {{share.share_market_cap}} $</li>
+              <li> Share Volume : {{share.share_volume}} $</li>
+              <li> Last Share Price : {{share.last_share_price}} $</li>
+            </ul>
           </div>
         </div>
       </div>
