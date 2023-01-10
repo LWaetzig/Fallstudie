@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from plotly.offline import plot
-import os
+from .models import Share
 
 from .src.get_stock_data import create_visualization
 
@@ -19,32 +19,22 @@ def risk_analysis_view(request):
 
 def fideo_view(request):
 
-    fig1 = create_visualization("fideo/data/AAPL.csv")
-    fig2 = create_visualization("fideo/data/AMZN.csv")
-    fig3 = create_visualization("fideo/data/TSLA.csv")
+    share_list = Share.objects.all()
+    pop_shares = dict()
+
+
+    fig1 = create_visualization("fideo/data/hist/AAPL.csv")
+    fig2 = create_visualization("fideo/data/hist/AMZN.csv")
+    fig3 = create_visualization("fideo/data/hist/TSLA.csv")
 
     plot1 = plot(fig1, output_type="div")
     plot2 = plot(fig2, output_type="div")
     plot3 = plot(fig3, output_type="div")
 
     context = {
+        "share_list" : share_list,
+
         "plots" : [plot1, plot2, plot3],
-        "tags" : ["Apple Inc." , "Amazon 4Müll" , "Tesla"],
-        "name_list": [
-            "ADDDF",
-            "ALIZF",
-            "GOOGL",
-            "AMZN",
-            "AAPL",
-            "BFFAF",
-            "BAYZF",
-            "BNTX",
-            "BAMXF",
-            "KO",
-            "CRZBF",
-            "MBGAF",
-        ],
-        "template_grid": range(4),
     }
 
     return render(request=request, template_name="fideo.html", context=context)
@@ -59,12 +49,4 @@ def login_view(request):
 
 
 def factory(request):
-
-    fig = create_visualization(
-        "/Users/lwaetzig/Documents/B_Studium/3_Semester_WSM_2/9_Fallstudie/Fallstudie/shares/AAPL.csv"
-    )
-    plot1 = plot(fig, output_type="div")
-
-    context = {"plot1": plot1}
-
-    return render(request=request, template_name="factory.html", context=context)
+    return render(request=request, template_name="factory.html")
