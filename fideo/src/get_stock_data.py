@@ -33,10 +33,16 @@ def create_visualization(file_path: str):
         xaxis={
             "fixedrange": True,
             "rangeslider": {"visible": False},
-            "showgrid": False,
-            "showticklabels": False,
+            "showgrid": True,
+            "gridcolor" : "grey",
+            "showticklabels": True,
+            "griddash" :"dash",
+            "minor_griddash" : "dot",
         },
-        yaxis={"fixedrange": True, "showgrid": False, "showticklabels": False},
+        yaxis={
+            "fixedrange": True,
+            "showgrid": False,
+            "showticklabels": False},
     )
 
     return fig
