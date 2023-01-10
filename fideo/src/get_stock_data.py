@@ -48,7 +48,7 @@ def get_stock_data():
     for i, tag in enumerate(shares):
         ticker = yf.Ticker(str(tag))
         history = ticker.history(period="1y", actions=False)
-        history.to_csv(f"{data_storage_path}/{tag}.csv")
+        history.to_csv(f"{hist_data_path}/{tag}.csv")
 
         df.loc[i, "tag"] = tag
         df.loc[i, "name"] = str(ticker.info["longName"])
@@ -62,7 +62,7 @@ def get_stock_data():
     df = pd.merge(df, dfcompounds, on="tag", how="left")
 
 
-    df.to_csv(f"{hist_data_path}/sharesdata.csv")
+    df.to_csv(f"{data_storage_path}/sharesdata.csv")
 
 get_stock_data()
 
