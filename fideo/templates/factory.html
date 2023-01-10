@@ -1,4 +1,131 @@
-{% extends 'base.html' %}
-{% block content%}
-<p> Hello World </p>
-{%endblock%}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta lang="en" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta name="description" content="" />
+
+    <title>factory page</title>
+    <link rel="shortcut icon" href="../static/images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/css/factory.css" />
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="../static/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="../static/css/dropdown-style.css" />
+    <link rel="stylesheet" href="../static/css/socicon-styles.css" /> <!-- style for social media icons -->
+    <link rel="stylesheet" href="../static/css/icons2-style.css" /> <!-- style for other icons -->
+    <link rel="stylesheet" href="../static/css/theme-style.css" />
+    <link rel="stylesheet" href="../static/css/popup.css" />
+    <link rel="stylesheet" href="../static/css/login-window.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" />
+    </noscript>
+    <link rel="icon" href="../static/images/logo_icon_white.svg" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!--Script to include plotly plot-->
+</head>
+
+<body>
+    <div class="full-div">
+        <section class="">
+            <h4 class="align-center mb-5 display-2">
+                <strong>Most Popular Shares</strong>
+            </h4>
+            <div class="row">
+                <div class="col">
+                    <div class="card-container">
+                        <div class="graph-holder">
+                            {{plot1 | safe }}
+                        </div>
+                        <div class="info-holder">
+                            <h5 class="display-5">
+                                <strong>Share 1</strong>
+                            </h5>
+                            <p class="display-7">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique sapiente culpa nesciunt
+                                repellat vitae aspernatur consectetur soluta vel! Ducimus repellat sint harum temporibus
+                                labore totam ut exercitationem tempore accusantium porro.
+                            </p>
+                        </div>
+                        <div class="btn-holder">
+                            <a class="btn btn-primary">More Information</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-container">
+                        <div class="graph-holder">
+                        </div>
+                        <div class="info-holder">
+                            <h5 class="display-5">
+                                <strong>Share 1</strong>
+                            </h5>
+                            <p class="display-7">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique sapiente culpa nesciunt
+                                repellat vitae aspernatur consectetur soluta vel! Ducimus repellat sint harum temporibus
+                                labore totam ut exercitationem tempore accusantium porro.
+                            </p>
+                        </div>
+                        <div class="btn-holder">
+                            <a class="btn btn-primary">More Information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card-container">
+                        <div class="graph-holder">
+                        </div>
+                        <div class="info-holder">
+                            <h5 class="display-5">
+                                <strong>Share 1</strong>
+                            </h5>
+                            <p class="display-7">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique sapiente culpa nesciunt
+                                repellat vitae aspernatur consectetur soluta vel! Ducimus repellat sint harum temporibus
+                                labore totam ut exercitationem tempore accusantium porro.
+                            </p>
+                        </div>
+                        <div class="btn-holder">
+                            <a class="btn btn-primary">More Information</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                <div class="card-container">
+                    <div class="graph-holder">
+                    </div>
+                    <div class="info-holder">
+                        <h5 class="display-5">
+                            <strong>Share 1</strong>
+                        </h5>
+                        <p class="display-7">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique sapiente culpa nesciunt
+                            repellat vitae aspernatur consectetur soluta vel! Ducimus repellat sint harum temporibus
+                            labore totam ut exercitationem tempore accusantium porro.
+                        </p>
+                    </div>
+                    <div class="btn-holder">
+                        <a class="btn btn-primary">More Information</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="full-div">
+
+    </div>
+
+</body>
+
+</html>
