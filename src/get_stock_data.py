@@ -58,8 +58,6 @@ def create_data_dict(shares: list) -> dict:
 
     return share_dict
 
-# in csv packen (kp ob des so jetzt alles funktioniert Lul)
-
 df = pd.DataFrame(create_data_dict())
 df.to_csv("sharesdata.csv", index=False)
 
@@ -97,25 +95,15 @@ def wrapper_function() -> None:
     historical_data(selected_shares)
     share_dict = create_data_dict(selected_shares)
 
-    with open("finance.json", "w", encoding="utf-8") as f:
-        json.dump(share_dict, f, indent=4, ensure_ascii=False)
 
 
-def create_visualization(file_path) -> None:
-    """create visualization using plotly"""
+def get_stock_data():
+    """function to get all necessary information and historical share price"""
 
-    df = pd.read_csv(file_path, index_col=0)
-    fig = go.Figure
+    # define list with seleted shares
 
-    fig = go.Figure()
+    # create csv file for historical share prices
+    
+    
+    # create csv file with information depending on the share
 
-    fig.add_trace(
-        go.Candlestick(
-            x=df.index,
-            open=df["Open"],
-            high=df["High"],
-            low=df["Low"],
-            close=df["Close"],
-            name="stock price",
-        )
-    )
