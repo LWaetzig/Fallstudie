@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 class Share(models.Model):
 
     share_id = models.CharField(("share_ID"), primary_key=True, max_length=255)
-    share_tag = models.CharField(("share_Tag"), max_length=255)
+    share_tag = models.CharField(("share_tag"), max_length=255)
     share_name = models.CharField(("share_name"), max_length=255)
     share_sector = models.CharField(("share_sector"), max_length=255)
     share_value1 = models.FloatField(("value1"))
