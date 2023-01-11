@@ -1,6 +1,88 @@
 {% extends "base.html" %}
 {% block content %}
 
+<style>
+    #slider-value {
+        border: 1px solid black;
+        text-align: center;
+        border-radius: 0.5em;
+        padding: 1em;
+        margin-top: 1em;
+    }
 
+    .form-sctn {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+    }
+
+    .range-slider {
+        -webkit-appearance: none;
+        width: 50%;
+    }
+</style>
+
+
+<section class="cid-sFzFvgBfc0">
+    <div class="container">
+        <div class="sctn-heading">
+            <h4 class="align-center mb-5 display-2">
+                <strong>Risk Analysis</strong>
+            </h4>
+            <p class="align-center mb-5 display-7">
+                Stell dein Risikolevel ein:
+            </p>
+        </div>
+        <div class="form-sctn">
+            <input class="form-range range-slider" min="0" max="2" type="range" oninput="outputUpdate(value)">
+            <p id="slider-value">Ich habe keine Ahnung</p>
+        </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="sctn-heading">
+            <h4 class="align-center mb-5 display-2">
+                <strong>Aktien passend zum Risikolevel</strong>
+            </h4>
+        </div>
+        <div class="row mt-4">
+            {%for share in share_list%}
+            {% if share.risk_level == 0%}
+            <div class="item features-image col-6 col-6">
+                <div class="item-wrapper">
+                    <div class="item-img">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="display-5">
+                            <strong>{{share.share_name}}</strong>
+                        </h5>
+                        <ul class="display-7">
+                            <li> Last Share Price : </li>
+                            <li> Sector : </li>
+                            <li> Market capitalization : </li>
+                            <li> Share Volume : </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {%endfor%}
+        </div>
+    </div>
+</section>
+
+
+
+
+<script>
+    var values = ["Ich mag mein Geld", "Ich habe keine Ahnung", "Fuck money"]
+    function outputUpdate(val) {
+        var output = document.getElementById("slider-value");
+        output.innerHTML = values[val]
+    }
+</script>
+
+</section>
 
 {%endblock %}
