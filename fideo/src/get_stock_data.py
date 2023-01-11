@@ -8,12 +8,11 @@ import yfinance as yf
 from fideo.src.finvispro import web_scraping
 
 
-
 def get_stock_data():
     """function to get all necessary information and historical share price"""
 
-    data_storage_path = os.path.join("fideo" , "data")
-    hist_data_path = os.path.join(data_storage_path , "hist")
+    data_storage_path = os.path.join("fideo", "data")
+    hist_data_path = os.path.join(data_storage_path, "hist")
 
     if not os.path.exists(hist_data_path):
         os.makedirs(hist_data_path)
@@ -43,43 +42,67 @@ def get_stock_data():
         history = ticker.history(period="1y", actions=False)
         history.to_csv(f"{hist_data_path}/{tag}.csv")
 
+        # get all information for each share
+        share_name, share_sector = str(ticker.info["longName"]), str(
+            ticker.info["sector"]
+        )
+
+        peg_ratio, beta_factor, market_cap, volume = (
+            float(ticker.info["trailingPegRatio"]),
+            float(ticker.info["beta"]),
+            float(ticker.info["marketCap"]),
+            float(ticker.info["volume"]),
+        )
+        volatility = (history["Close"].pct_change().std() * (252**0.5) * 100).round(2)
+
+        # store information in DataFrame
         df.loc[i, "tag"] = tag
-        df.loc[i, "name"] = str(ticker.info["longName"])
-        df.loc[i, "sector"] = str(ticker.info["sector"])
-        df.loc[i, "peg_ratio"] = float(ticker.info["trailingPegRatio"])
-        df.loc[i, "betafactor"] = float(ticker.info["beta"])
-        df.loc[i, "histpath"] = f"{hist_data_path}/{tag}.csv"
-        vol = (history["Close"].pct_change().std() * (252**0.5)*100).round(2)
-        df.loc[i, "volatility"] = vol
-        df.loc[i, "market_cap"] = float(ticker.info["marketCap"])
-        df.loc[i, "volume"] = float(ticker.info["volume"])
+        df.loc[i, "name"] = share_name
+        df.loc[i, "sector"] = share_sector
+        df.loc[i, "peg_ratio"] = peg_ratio
+        df.loc[i, "betafactor"] = beta_factor
+        df.loc[i, "volatility"] = volatility
+        df.loc[i, "market_cap"] = market_cap
+        df.loc[i, "volume"] = volume
         df.loc[i, "last_close_price"] = float(history["Close"][-1].round(3))
+        df.loc[i, "histpath"] = f"{hist_data_path}/{tag}.csv"
 
+        # calculation to define risk level for each share
         class_peg_ratio = 0
-        if float(ticker.info["pegRatio"]) > 2.5:
+        class_beta_factor = 0
+        class_volatility = 0
+
+        if peg_ratio > 2.5:
             class_peg_ratio = -1
-        elif float(ticker.info["pegRatio"]) < 1.75:
+        elif peg_ratio < 1.75:
             class_peg_ratio = 1
 
-        class_betafactor = 0
-        if float(ticker.info["beta"]) > 1.15:
-            class_peg_ratio = -1
-        elif float(ticker.info["beta"]) < 0.95:
-            class_peg_ratio = 1
-        
-        class_volatility = 0
-        if vol > 45:
+        if beta_factor > 1.15:
+            class_beta_factor = -1
+        elif beta_factor < 0.95:
+            class_beta_factor = 1
+
+        if volatility > 45:
             class_volatility = -1
-        elif vol <= 20 :
+        elif volatility <= 20:
             class_volatility = 1
 
-        df.loc[i, "risk_level"] = class_volatility + class_betafactor + class_peg_ratio
+        df.loc[i, "class_peg_ratio"] = class_peg_ratio
+        df.loc[i, "class_beta_factor"] = class_beta_factor
+        df.loc[i, "class_volatility"] = class_volatility
 
+        # add risk level to DataFrame
+        df.loc[i, "risk_level"] = class_volatility + class_beta_factor + class_peg_ratio
 
     # merge dataframe containing all necessary information with compund dataframe
     df = pd.merge(df, dfcompounds, on="tag", how="left")
 
     df.to_csv(f"{data_storage_path}/sharesdata.csv")
+
+
+# get_stock_data()
+# df = pd.read_csv("fideo/data/sharesdata.csv")
+
 
 def create_small_visualization(file_path: str):
     """function to create a plot using plotly to display the historical share price
@@ -114,26 +137,23 @@ def create_small_visualization(file_path: str):
             "fixedrange": True,
             "rangeslider": {"visible": False},
             "showgrid": True,
-            "gridcolor" : "grey",
+            "gridcolor": "grey",
             "showticklabels": True,
-            "griddash" :"dash",
-            "minor_griddash" : "dot",
+            "griddash": "dash",
+            "minor_griddash": "dot",
         },
-        yaxis={
-            "fixedrange": True,
-            "showgrid": False,
-            "showticklabels": False},
+        yaxis={"fixedrange": True, "showgrid": False, "showticklabels": False},
     )
 
     return fig
 
 
-def create_full_visualization(file_path : str):
+def create_full_visualization(file_path: str):
     """function to generat a bigger visualization with zoom and paning function
 
     Args:
-        file_path (str): path to historical share data 
-    
+        file_path (str): path to historical share data
+
     Returns:
         function: returns a figure containing the plot
     """
@@ -147,15 +167,10 @@ def create_full_visualization(file_path : str):
         close=df["Close"],
     )
 
-    scatter = go.Scatter(
-        x=df.index,
-        y=df["Close"],
-        opacity=0.5
-    )
-    fig = make_subplots(specs=[[{"secondary_y" : False}]])
+    scatter = go.Scatter(x=df.index, y=df["Close"], opacity=0.5)
+    fig = make_subplots(specs=[[{"secondary_y": False}]])
     fig.add_trace(scatter)
     fig.add_trace(candlestick)
-    
 
     fig.update_layout(
         autosize=False,
@@ -169,17 +184,12 @@ def create_full_visualization(file_path : str):
             "fixedrange": True,
             "rangeslider": {"visible": True},
             "showgrid": True,
-            "gridcolor" : "grey",
+            "gridcolor": "grey",
             "showticklabels": True,
-            "griddash" :"dash",
-            "minor_griddash" : "dot",
+            "griddash": "dash",
+            "minor_griddash": "dot",
         },
-        yaxis={
-            "fixedrange": True,
-            "showgrid": False,
-            "showticklabels": False},
+        yaxis={"fixedrange": True, "showgrid": False, "showticklabels": False},
     )
-
-
 
     return fig
