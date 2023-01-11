@@ -16,7 +16,13 @@ def about_us_view(request):
 
 
 def risk_analysis_view(request):
-    return render(request=request, template_name="risikoanalyse.html")
+    share_list = Share.objects.all().order_by("share_name")
+
+    context = {
+        "share_list" : share_list,
+    }
+    
+    return render(request=request, template_name="risikoanalyse.html" , context=context)
 
 
 def fideo_view(request):
