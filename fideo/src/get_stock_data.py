@@ -5,8 +5,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
 
-from fideo.src.finvispro import web_scraping
-
+from finvispro import web_scraping
+os.getcwd()
 
 def get_stock_data():
     """function to get all necessary information and historical share price"""
@@ -40,10 +40,13 @@ def get_stock_data():
         "peg_ratio",
         "betafactor",
         "histpath",
+        "market_cap",
+        "volume",
+        "last_close_price"
     ]
     df = pd.DataFrame(columns=columns)
 
-    # get compund value vom nlp algorithm to classify news depending to the share
+    # get compund value from nlp algorithm to classify news depending to the share
     dfcompounds = web_scraping()
 
     for i, tag in enumerate(shares):
@@ -54,13 +57,27 @@ def get_stock_data():
         df.loc[i, "tag"] = tag
         df.loc[i, "name"] = str(ticker.info["longName"])
         df.loc[i, "sector"] = str(ticker.info["sector"])
-        df.loc[i, "peg_ratio"] = float(ticker.info["pegRatio"])
+        df.loc[i, "peg_ratio"] = ticker.info["trailingPegRatio"]
         df.loc[i, "betafactor"] = float(ticker.info["beta"])
         df.loc[i, "histpath"] = f"{hist_data_path}/{tag}.csv"
         df.loc[i, "volatility"] = (history["Close"].pct_change().std() * 100).round(2)
-        df.loc[i , "market_cap"] = float(ticker.info["marketCap"])
-        df.loc[i , "volume"] = float(ticker.info["volume"])
-        df.loc[i , "last_close_price"] = float(history["Close"][-1].round(3))
+        df.loc[i, "market_cap"] = float(ticker.info["marketCap"])
+        df.loc[i, "volume"] = float(ticker.info["volume"])
+        df.loc[i, "last_close_price"] = float(history["Close"][-1].round(3))
+
+        class_peg_ratio = 0
+        if float(ticker.info["pegRatio"]) > 1:
+            class_peg_ratio = -1
+        elif float(ticker.info["pegRatio"]) < 1:
+            class_peg_ratio = 1
+
+        class_betafactor = 0
+        if float(ticker.info["beta"]) > 1:
+            class_peg_ratio = -1
+        elif float(ticker.info["beta"]) < 1:
+            class_peg_ratio = 1
+
+
 
     # merge dataframe containing all necessary information with compund dataframe
     df = pd.merge(df, dfcompounds, on="tag", how="left")
@@ -74,7 +91,7 @@ def get_stock_data():
     # alternative: mean()
 
     df.to_csv(f"{data_storage_path}/sharesdata.csv")
-
+get_stock_data()
 def create_small_visualization(file_path: str):
     """function to create a plot using plotly to display the historical share price
 
