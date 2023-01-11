@@ -65,6 +65,14 @@ def get_stock_data():
     # merge dataframe containing all necessary information with compund dataframe
     df = pd.merge(df, dfcompounds, on="tag", how="left")
 
+    # "class_volatility"
+    # 0-16 -> 0
+    # 16-45 -> 1
+    # > 45 -> 2
+
+    # "risk_level" = sum(class_volatitily, class_betafactor, class_peg_ratio) 
+    # alternative: mean()
+
     df.to_csv(f"{data_storage_path}/sharesdata.csv")
 
 def create_small_visualization(file_path: str):
