@@ -1,5 +1,3 @@
-# Import libraries
-import os
 from urllib.request import Request, urlopen
 
 import pandas as pd
@@ -13,7 +11,7 @@ def web_scraping():
     tickers = [
         "AMZN",
         "GOOG",
-        "BNTX",
+        "DB",
         "NKE",
         "AAPL",
         "KO",
