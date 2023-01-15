@@ -15,31 +15,25 @@ def about_us_view(request):
 
 
 def risk_analysis_view(request):
-    if request.method == "POST":
-        print("get post from risk_analysis:" , request.POST["itemName"])
-        itemName = request.POST["itemName"]
-        if len(User.objects.all()) == 0:
-            User.objects.create(risk_level=itemName)
-        else:
-            User.objects.all().delete()
-            User.objects.create(risk_level=itemName)
-
-        risk_level = User.objects.all()[0].risk_level
-        print(risk_level)
-    else:
-        risk_level = 0
-
-
-
     share_list = Share.objects.all().order_by("share_name")
+    
+    if request.method == "POST":
+        print("get post from risk_analysis:" , request.POST["risk_level"])
+        my_risk_level = request.POST["risk_level"]
+        if len(User.objects.all()) == 0:
+            User.objects.create(risk_level=my_risk_level)
+        else:
+            User.objects.update(risk_level=my_risk_level)
+
+    user_risk_level = User.objects.all()[0].risk_level
+    print(user_risk_level)
 
     context = {
         "share_list": share_list,
-        "risk_level" : risk_level
+        "user_risk_level" : user_risk_level,
     }
 
     return render(request=request, template_name="risikoanalyse.html", context=context)
-
 
 def fideo_view(request):
 
