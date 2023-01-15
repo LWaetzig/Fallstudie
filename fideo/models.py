@@ -16,3 +16,7 @@ class Share(models.Model):
     share_volume = models.FloatField(("volume") , default=0.00)
     last_share_price = models.FloatField(("last_close_price"), default=0.00)
     risk_level = models.IntegerField(("risk_level") , default=0)
+
+
+class User(models.Model):
+    risk_level = models.IntegerField(("risk_level"), default=0)
