@@ -1,0 +1,13 @@
+,tag,name,sector,peg_ratio,betafactor,volatility,market_cap,volume,last_close_price,histpath,class_peg_ratio,class_beta_factor,class_volatility,risk_level,compound
+0,AMZN,"Amazon.com, Inc.",Consumer Cyclical,5.0392,1.194683,50.44,953042796544.0,43562165.0,93.44,fideo/data/hist/AMZN.csv,-1.0,-1.0,-1.0,-3.0,0.11
+1,GOOG,Alphabet Inc.,Communication Services,1.2429,1.069061,38.67,1175910612992.0,7358458.0,91.17,fideo/data/hist/GOOG.csv,1.0,0.0,0.0,1.0,0.04
+2,DB,Deutsche Bank Aktiengesellschaft,Financial Services,0.1427,1.407058,49.91,26096005120.0,1295949.0,12.605,fideo/data/hist/DB.csv,1.0,-1.0,-1.0,-1.0,-0.02
+3,NKE,"NIKE, Inc.",Consumer Cyclical,4.3714,1.086501,42.15,197866962944.0,2216476.0,127.61,fideo/data/hist/NKE.csv,-1.0,0.0,0.0,-1.0,0.14
+4,AAPL,Apple Inc.,Technology,2.5268,1.27241,35.84,2093267419136.0,25773672.0,131.6,fideo/data/hist/AAPL.csv,-1.0,-1.0,0.0,-2.0,0.04
+5,KO,The Coca-Cola Company,Consumer Defensive,3.5674,0.592672,19.82,266541187072.0,3455680.0,61.635,fideo/data/hist/KO.csv,-1.0,1.0,1.0,1.0,0.21
+6,META,"Meta Platforms, Inc.",Communication Services,2.865,1.164283,64.35,348027551744.0,11134616.0,132.72,fideo/data/hist/META.csv,-1.0,-1.0,-1.0,-3.0,-0.07
+7,MSFT,Microsoft Corporation,Technology,1.9863,0.926403,35.56,1740320669696.0,9823044.0,233.46,fideo/data/hist/MSFT.csv,0.0,1.0,0.0,1.0,0.13
+8,NVDA,NVIDIA Corporation,Technology,3.532,1.722009,63.32,390944980992.0,14524529.0,156.91,fideo/data/hist/NVDA.csv,-1.0,-1.0,-1.0,-3.0,0.16
+9,PYPL,"PayPal Holdings, Inc.",Financial Services,1.551,1.278688,58.67,90050961408.0,3304731.0,78.97,fideo/data/hist/PYPL.csv,1.0,-1.0,-1.0,-1.0,0.1
+10,SAP,SAP SE,Technology,1.9602,0.98745,33.66,134247981056.0,304729.0,114.735,fideo/data/hist/SAP.csv,0.0,0.0,0.0,0.0,0.17
+11,TSLA,"Tesla, Inc.",Consumer Cyclical,1.1269,2.030345,66.52,386824372224.0,97585617.0,122.5,fideo/data/hist/TSLA.csv,1.0,-1.0,-1.0,-1.0,-0.01
