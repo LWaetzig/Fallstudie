@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from plotly.offline import plot
 
-from .models import Share
-from .src.get_stock_data import (create_full_visualization,
-                                 create_small_visualization)
+from .models import Share, User
+from .src.get_stock_data import create_full_visualization, create_small_visualization
 
 
 # Create your views here.
@@ -16,13 +15,30 @@ def about_us_view(request):
 
 
 def risk_analysis_view(request):
+    if request.method == "POST":
+        print("get post from risk_analysis:" , request.POST["itemName"])
+        itemName = request.POST["itemName"]
+        if len(User.objects.all()) == 0:
+            User.objects.create(risk_level=itemName)
+        else:
+            User.objects.all().delete()
+            User.objects.create(risk_level=itemName)
+
+        risk_level = User.objects.all()[0].risk_level
+        print(risk_level)
+    else:
+        risk_level = 0
+
+
+
     share_list = Share.objects.all().order_by("share_name")
 
     context = {
-        "share_list" : share_list,
+        "share_list": share_list,
+        "risk_level" : risk_level
     }
-    
-    return render(request=request, template_name="risikoanalyse.html" , context=context)
+
+    return render(request=request, template_name="risikoanalyse.html", context=context)
 
 
 def fideo_view(request):

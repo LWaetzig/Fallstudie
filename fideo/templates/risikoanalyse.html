@@ -23,6 +23,14 @@
     }
 </style>
 
+<section class="cid-sFzFvgBfc0">
+    <button class="btn btn-primary" onclick="addItem()">Submit</button>
+    
+    <div id="reload">
+        {{risk_level}}
+    </div>
+
+</section>
 
 <section class="cid-sFzFvgBfc0">
     <div class="container">
@@ -35,20 +43,20 @@
             </p>
         </div>
         <div class="form-sctn">
-            <input class="form-range range-slider" min="0" max="2" type="range" oninput="outputUpdate(value)">
+            <input id="slider" class="form-range range-slider" min="0" max="2" type="range" oninput="outputUpdate(value)">
             <p id="slider-value">Ich habe keine Ahnung</p>
         </div>
-        </div>
     </div>
-    <div class="container mt-5">
+    <div class="container">
         <div class="sctn-heading">
-            <h4 class="align-center mb-5 display-2">
-                <strong>Aktien passend zum Risikolevel</strong>
-            </h4>
+            <div class="container mt-5">
+                <h4 class="align-center mb-5 display-2">
+                    <strong>Aktien passend zum Risikolevel</strong>
+                </h4>
+            </div>
         </div>
-        <div class="row mt-4">
+        <div class="row mt-4" id="view_container">
             {%for share in share_list%}
-            {% if share.risk_level == 0%}
             <div class="item features-image col-6 col-6">
                 <div class="item-wrapper">
                     <div class="item-img">
@@ -66,7 +74,6 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
             {%endfor%}
         </div>
     </div>
@@ -76,11 +83,32 @@
 
 
 <script>
+    function addItem() {
+        let itemName = prompt("Neues Element")
+        let csrf_token = "{{csrf_token}}"
+        let formData = new FormData();
+        formData.append("itemName" , itemName);
+        formData.append("csrfmiddlewaretoken" , csrf_token)
+        fetch("/risk-analysis/" , {
+            method : "POST",
+            body : formData
+        });
+        $('#reaload').load(location.href + ' #reload')
+    }
     var values = ["Ich mag mein Geld", "Ich habe keine Ahnung", "Fuck money"]
     function outputUpdate(val) {
         var output = document.getElementById("slider-value");
         output.innerHTML = values[val]
-    }
+    };
+    
+    $(document).ready(function(){
+        $('#slider').change(function(){
+            var slider_value = $(this).val();
+            $.get("/risk_analysis_view" , {slider_value : slider_value}, function(data){
+                $("#view_container").html(data);
+            });
+        });
+    });
 </script>
 
 </section>

@@ -32,8 +32,8 @@ urlpatterns = [
     path("", home_view, name="index"),
     path("fideo/", fideo_view, name="fideo"),
     path("aboutUs/", about_us_view, name="aboutUs"),
-    path("risk-analysis/" , risk_analysis_view , name="risk"),
+    path("risk-analysis/" , risk_analysis_view , name="risk_analysis_view"),
     path("impressum/", impressum_view, name="impressum"),
     path("login/", login_view, name="login"),
-    path("factory/" , factory)
+    path("factory/" , factory),
 ]

@@ -1,0 +1,21 @@
+<div class="row mt-4" id="view_container">
+    {%for share in share_list%}
+    <div class="item features-image col-6 col-6">
+        <div class="item-wrapper">
+            <div class="item-img">
+            </div>
+            <div class="item-content">
+                <h5 class="display-5">
+                    <strong>{{share.share_name}}</strong>
+                </h5>
+                <ul class="display-7">
+                    <li> Last Share Price : </li>
+                    <li> Sector : </li>
+                    <li> Market capitalization : </li>
+                    <li> Share Volume : </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
