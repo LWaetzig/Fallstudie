@@ -68,6 +68,7 @@ def get_stock_data():
         df.loc[i, "histpath"] = f"{hist_data_path}/{tag}.csv"
 
         # calculation to define risk level for each share
+        # classification: -1 = high risk, 0 = neutral, 1 = low risk
         class_peg_ratio = 0
         class_beta_factor = 0
         class_volatility = 0
