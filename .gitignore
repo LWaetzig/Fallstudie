@@ -140,10 +140,10 @@ dmypy.json
 
 
 # exclude directories
-data/**
+#data/**
 output/**
 shares/**
 
 
 # exclude csv files
-*.csv
+#*.csv

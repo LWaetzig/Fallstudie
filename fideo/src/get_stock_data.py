@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
 
-from fideo.src.finvispro import web_scraping
+from finvispro import web_scraping
 
 
 def get_stock_data():
@@ -46,7 +46,7 @@ def get_stock_data():
         share_name = str(ticker.info["longName"])
         share_sector = str(ticker.info["sector"])
 
-        peg_ratio = float(ticker.info["trailingPegRatio"])
+        peg_ratio = ticker.info["trailingPegRatio"]
         beta_factor = float(ticker.info["beta"])
         market_cap = float(ticker.info["marketCap"])
         volume = float(ticker.info["volume"])
@@ -57,7 +57,7 @@ def get_stock_data():
         df.loc[i, "name"] = share_name
         df.loc[i, "sector"] = share_sector
         df.loc[i, "peg_ratio"] = peg_ratio
-        df.loc[i, "betafactor"] = beta_factor
+        df.loc[i, "beta_factor"] = beta_factor
         df.loc[i, "volatility"] = volatility
         df.loc[i, "market_cap"] = market_cap
         df.loc[i, "volume"] = volume
@@ -100,20 +100,22 @@ def get_stock_data():
         class_mean = (class_volatility + class_beta_factor + class_peg_ratio + class_compound) / 4
 
         # caluclate risk level
-        if class_mean <= 0 and class_mean > -1.0:
-            risk_level = 1
-        elif class_mean <= -2/3:
+        if class_mean <= -0.5:
             risk_level = 2
+        elif class_mean > -0.5 and class_mean <= 0:
+            risk_level = 1
         else:
             risk_level = 0
 
         # add risk level to DataFrame
         df.loc[i, "risk_level"] = risk_level
 
+    # to prevent errors  
+    df = df.fillna(1)
+
     df.to_csv(f"{data_storage_path}/sharesdata.csv")
 
-# df = pd.read_csv("fideo/data/sharesdata.csv" , index_col=0)
-
+get_stock_data()
 
 def create_small_visualization(file_path: str):
     """function to create a plot using plotly to display the historical share price
