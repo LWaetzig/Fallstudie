@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
 
-from finvispro import web_scraping
+from fideo.src.finvispro import web_scraping
 
 
 def get_stock_data():
@@ -108,14 +108,12 @@ def get_stock_data():
             risk_level = 0
 
         # add risk level to DataFrame
-        df.loc[i, "risk_level"] = risk_level
+        df.loc[i, "risk_level"] = int(risk_level)
 
     # to prevent errors  
     df = df.fillna(1)
 
     df.to_csv(f"{data_storage_path}/sharesdata.csv")
-
-get_stock_data()
 
 def create_small_visualization(file_path: str):
     """function to create a plot using plotly to display the historical share price
