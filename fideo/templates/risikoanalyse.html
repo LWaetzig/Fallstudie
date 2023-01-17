@@ -59,10 +59,28 @@
                             <strong>{{share.share_name}}</strong>
                         </h5>
                         <ul class="display-7">
-                            <li> Last Share Price : </li>
-                            <li> Sector : </li>
-                            <li> Market capitalization : </li>
-                            <li> Share Volume : </li>
+                            <li>Volatitily: {{share.share_volatility}}</li>
+                            {% if share.share_beta_factor > 1.15 %}
+                            <li>Beta Factor: höhere Preisschwankungen</li>
+                            {% elif share.share_beta_factor <= 0.95 %}
+                            <li>Beta Factor: geringe Preisschwankungen</li>
+                            {% else %}
+                            <li>Beta Factor: entspricht dem Gesamtmarkt</li>
+                            {% endif %}
+                            {% if share.share_peg_ratio > 2.5 %}
+                            <li>PEG Ratio: Aktie ist unterbewertet</li>
+                            {% elif share.share_peg_ratio < 1.75 %}
+                            <li>PEG Ratio: Aktie ist überbewertet</li>
+                            {% else %}
+                            <li>PEG Ratio: Aktie ist fair bewertet</li>
+                            {% endif %}
+                            {% if share.share_compound > 0.05%}
+                            <li>Compound Value: Nachrichten überwiegend positiv </li>
+                            {% elif share.share_compound < -0.05%}
+                            <li>Compound Value: Nachrichten überwiegend negativ</li>
+                            {% else %}
+                            <li>Compound Value: Nachrichten neutral </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
