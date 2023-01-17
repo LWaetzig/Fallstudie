@@ -178,9 +178,7 @@ def create_full_visualization(file_path: str):
         close=df["Close"],
     )
 
-    scatter = go.Scatter(x=df.index, y=df["Close"], opacity=0.5)
     fig = make_subplots(specs=[[{"secondary_y": False}]])
-    fig.add_trace(scatter)
     fig.add_trace(candlestick)
 
     fig.update_layout(
