@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content%}
+{% load multifor %}
+
+<section class="cid-sFzFvgBfc0">
+  <div class="container">
+    <div class="sctn-heading">
+      <h4 class="align-center mb-5 display-2">
+        <strong>Most Popular Shares</strong>
+      </h4>
+    </div>
+    <div class="row mt-4">
+      {% for pop_share in pop_shares; pop_plot in pop_share_plots %}
+      <div class="item features-image col-4 col-4 col-4">
+        <div class="item-wrapper">
+          <div class="item-img">
+            {{ pop_plot | safe}}
+          </div>
+          <div class="item-content">
+            <h5 class="display-5">
+              <strong>{{pop_share.share_name}}</strong>
+            </h5>
+          </div>
+          <div class="mbr-section-btn item-footer mt-2">
+            <a href="#{{pop_share.share_tag}}" class="btn btn-primary display-4">More information</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+<section class="cid-sFzFvgBfc0">
+  <div class="container">
+    <div class="sctn-heading">
+      <h4 class="align-center mb-5 display-2">
+        <strong>All Available Shares</strong>
+      </h4>
+    </div>
+    <div class="row mt-4">
+      {% for share in share_list ; plot in all_share_plots %}
+      <div class="item features-image col-6 col-6" id="{{share.share_tag}}">
+        <div class="item-wrapper">
+          {{plot | safe}}
+          <div class="item-img">
+          </div>
+          <div class="item-content">
+            <h5 class="display-5">
+              <strong>{{share.share_name}}</strong>
+            </h5>
+            <ul class="display-7">
+              <li> Last Share Price: <strong>{{share.last_share_price}} $</strong></li>
+              <li> Market capitalization: {{share.share_market_cap}} $</li>
+              <li> Share Volume: {{share.share_volume}} $</li>
+              <li> Sector: {{share.share_sector}} </li>
+              <li> Ticker: {{share.share_tag}}</li
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</section>
+
+{% endblock %}

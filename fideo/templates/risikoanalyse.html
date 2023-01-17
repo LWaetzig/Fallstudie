@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    #slider-value {
+        border: 1px solid black;
+        text-align: center;
+        border-radius: 0.5em;
+        padding: 1em;
+        margin-top: 1em;
+    }
+
+    .form-sctn {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+    }
+
+    .range-slider {
+        -webkit-appearance: none;
+        width: 50%;
+    }
+</style>
+
+<section class="cid-sFzFvgBfc0" id="1">
+    <div class="container">
+        <div class="sctn-heading">
+            <h4 class="align-center mb-5 display-2">
+                <strong>Risikoanalyse</strong>
+            </h4>
+            <p class="align-center mb-5 display-7">
+                Stell dein Risikolevel ein:
+            </p>
+        </div>
+        <div class="form-sctn">
+            <input id="slider" class="form-range range-slider" min="0" max="2" value="{{user_risk_level}}" type="range" oninput="outputUpdate(value)">
+            <p id="slider-value">Ich habe keine Ahnung</p>
+            <button class="btn btn-primary" id="submit-btn" onclick="submitValue()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sctn-heading">
+            <div class="container mt-5">
+                <h4 class="align-center mb-5 display-2">
+                    <strong>Aktien passend zum Risikolevel</strong>
+                </h4>
+            </div>
+        </div>
+        <div class="row mt-4">
+            {%for share in share_list%}
+            {%if share.risk_level == user_risk_level%}
+            <div class="item features-image col-6 col-6">
+                <div class="item-wrapper">
+                    <div class="item-img">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="display-5">
+                            <strong>{{share.share_name}}</strong>
+                        </h5>
+                        <ul class="display-7">
+                            <li>Volatitily: {{share.share_volatility}}</li>
+                            {% if share.share_beta_factor > 1.15 %}
+                            <li>Beta Factor: höhere Preisschwankungen</li>
+                            {% elif share.share_beta_factor <= 0.95 %}
+                            <li>Beta Factor: geringe Preisschwankungen</li>
+                            {% else %}
+                            <li>Beta Factor: entspricht dem Gesamtmarkt</li>
+                            {% endif %}
+                            {% if share.share_peg_ratio > 2.5 %}
+                            <li>PEG Ratio: Aktie ist unterbewertet</li>
+                            {% elif share.share_peg_ratio < 1.75 %}
+                            <li>PEG Ratio: Aktie ist überbewertet</li>
+                            {% else %}
+                            <li>PEG Ratio: Aktie ist fair bewertet</li>
+                            {% endif %}
+                            {% if share.share_compound > 0.05%}
+                            <li>Compound Value: Nachrichten überwiegend positiv </li>
+                            {% elif share.share_compound < -0.05%}
+                            <li>Compound Value: Nachrichten überwiegend negativ</li>
+                            {% else %}
+                            <li>Compound Value: Nachrichten neutral </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+
+<script>
+    var values = ["Ich mag mein Geld", "Ich habe keine Ahnung", "Fuck money"]
+    function outputUpdate(val) {
+        var output = document.getElementById("slider-value");
+        output.innerHTML = values[val];
+    };
+
+    var my_slider = document.getElementById("slider");
+    var slider_value = 1;
+    my_slider.addEventListener("input" , function(){
+        slider_value = this.value
+    });
+
+    function submitValue() {
+        let my_risk_level = slider_value;
+        let csrf_token = "{{csrf_token}}";
+        let formData = new FormData();
+        formData.append("risk_level" , my_risk_level);
+        formData.append("csrfmiddlewaretoken" , csrf_token);
+        fetch("/risk-analysis/" , {
+            method : "POST",
+            body : formData
+        });
+        location.reload();
+    };
+</script>
+
+</section>
+
+{%endblock %}
