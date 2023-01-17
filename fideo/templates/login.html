@@ -1,33 +1,47 @@
 {% extends 'base.html' %}
-{% block content%}
-<section id="asndioashd">
-  <div class="login-form" style="border: 10px solid pink;">
-    <div class="login-card-body" style="border:1px solid red">
-      <img src="../static/images/login_icon.svg">
-      <h5 class="display-5 align-center">Login</h5>
-      <div id="login-error-msg-holder">
-        <p id="error-msg">Invalid username <span id="error-msg-second-line">and / or password</span></p>
+{% block content %}
+
+<section class="cid-sFzz5E692j">
+  <div class="container">
+    <h1 class="display-2 align-center">Coming soon</h1>
+  </div>
+</section>
+
+<section class="cid-sFzz5E692j">
+  <div class="container" style="border:1px solid black">
+    <div class="sctn-heading">
+      <h4 class="align-center mb-5 display-2">
+        <strong>Login / Register</strong>
+      </h4>
+    </div>
+    <div class="login-card">
+      <div class="login-card-header" style="border: 1px solid black;">
+        <h5 class="display-5 align center">Login</h5>
+        <div class="login-error-msg-holder">
+          <p class="display-7 align-center"><strong>Invalid username</p>
+          <p class="display-7 align-center">and / or password</p>
+        </div>
       </div>
-      <div class="form-body" id="login-field">
-        <div class="input-box">
+      <div class="login-card-body">
+        <div class="form-holder">
           <input type="text" name="username" id="username-field" required="required">
-          <span class="display-5">Username</span>
-          <i></i>
+          <span class="display-7">Username</span>
         </div>
-        <div class="input-box">
-          <input type="text" name="password" id="username-field" required="required">
-          <span class="display-5">Password</span>
-          <i></i>
+        <div class="form-holder">
+          <input type="password" name="password" id="password-field" required="required">
+          <span class="display-7">Password</span>
         </div>
-        <div class="login-links">
-          <a href="#">Forgot password</a>
-          <a href="#">Register</a>
+        <div class="links-holder">
+          <a href="">Forgot Password</a>
+          <a href="">Register</a>
         </div>
       </div>
-      <div class="form-footer">
-        <button type="button" class="login-btn" id="login-form-submit" onclick="closePopup()">Login</button>
+      <div class="login-card-footer" style="border: 1px solid yellow;">
+        <button class="login-btn" id="login-form-submit" type="button">Login</button>
       </div>
     </div>
   </div>
 </section>
+
+
 {%endblock%}
