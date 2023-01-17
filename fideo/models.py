@@ -15,7 +15,7 @@ class Share(models.Model):
     share_market_cap = models.FloatField(("market_cap") , default=0.00)
     share_volume = models.FloatField(("volume") , default=0.00)
     last_share_price = models.FloatField(("last_close_price"), default=0.00)
-    risk_level = models.IntegerField(("risk_level") , default=0)
+    risk_level = models.FloatField(("risk_level") , default=0)
 
 
 class User(models.Model):
