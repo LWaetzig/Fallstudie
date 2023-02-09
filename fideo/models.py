@@ -1,8 +1,6 @@
 from django.db import models
 
-
 class Share(models.Model):
-
     share_id = models.CharField(("share_ID"), primary_key=True, max_length=255)
     share_tag = models.CharField(("share_tag"), max_length=255)
     share_name = models.CharField(("share_name"), max_length=255)

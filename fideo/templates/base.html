@@ -1,42 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta lang="en" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <meta name="description" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="{%static 'media/logo_icon_white.svg' %}" type="image/x-icon">
 
     <title>FID€O</title>
-    <link rel="shortcut icon" href="../static/images/logo_icon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/css/bootstrap-grid.min.css" />
-    <link rel="stylesheet" href="../static/css/bootstrap-reboot.min.css" />
-    <link rel="stylesheet" href="../static/css/dropdown-style.css" />
-    <link rel="stylesheet" href="../static/css/socicon-styles.css" /> <!-- style for social media icons-->
-    <link rel="stylesheet" href="../static/css/icons2-style.css" /> <!-- style for other icons-->
-    <link rel="stylesheet" href="../static/css/theme-style.css" />
-    <link rel="stylesheet" href="../static/css/login-window.css" />
+    <link rel="stylesheet" href="{% static 'css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sociocon-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme-style.css' %}">
     <link rel="preload"
         href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" />
+            href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
     </noscript>
-    <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
-    <link rel="icon" href="../static/images/logo_icon_white.svg" />
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--include jquery-->
+    <link rel="preload" as="style" href="{% static 'css/additional.css' %}">
+    <link rel="stylesheet" href="{% static 'css/additional.css' %}" type="text/css">
 </head>
 
 <body>
-    {%include "header.html" %}
-    {% block content %}
+    {%include 'includes/header.html' %}
+    {%block content%}
 
-    {% endblock %}
-    {%include "footer.html" %}
+
+    {%endblock %}
+    {%include 'includes/footer.html' %}
 
 </body>
 
