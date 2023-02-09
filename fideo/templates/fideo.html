@@ -11,7 +11,7 @@
     </div>
     <div class="row mt-4">
       {% for pop_share in pop_shares; pop_plot in pop_share_plots %}
-      <div class="item features-image col-4 col-4 col-4">
+      <div class="item features-image сol-12 col-md-6 col-lg-4">
         <div class="item-wrapper">
           <div class="item-img">
             {{ pop_plot | safe}}
@@ -42,7 +42,7 @@
     </div>
     <div class="row mt-4">
       {% for share in share_list ; plot in all_share_plots %}
-      <div class="item features-image col-6 col-6" id="{{share.share_tag}}">
+      <div class="item features-image col-12 col-md-6" id="{{share.share_tag}}">
         <div class="item-wrapper">
           {{plot | safe}}
           <div class="item-img">
