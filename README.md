@@ -4,6 +4,7 @@ GitHub repository for class Fallstudie
 ## Important information
 - We use python 3.8.6 -> [download from here](https://www.python.org/downloads/release/python-386/)
 - All used packages  -> [requirements.txt](requirements.txt)
+- Project is also available -> [fideo](http://fideo.pythonanywhere.com)
 
 ## Run it on your local machine
 1. Clone the repository via ssh or https -> `git clone <ssh url>`
